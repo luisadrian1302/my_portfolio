@@ -1,0 +1,29 @@
+{
+    "greeting": "Hola, Yo soy ",
+    "first_name": "Adrian",
+    "job": "Desarrollador Full-Stack (Web & Mobile)",
+    "btn_first": "Ver mi trabajo",
+    "home": "Inicio",
+    "about": "Sobre mí",   
+    "Projects": "Proyectos",
+    "contact": "Contacto",
+    "projects": {
+        "mayakoba": {
+            "title": "Proyecto Finanzas Mayakoba",
+            "description": "Participé en la creación de los módulos Orden de Compras y Orden de Pago (Las capturas tienen datos simulados para fines de demostración)."
+        },
+        "expomex": {
+            "title": "Expomex",
+            "description": "Ayudé a colaborar en el mantenimiento y corrección de errores de esta aplicación web."
+        },
+        "equilibrio": {
+            "title": "Proyecto Equilibrio total",
+            "description": "Desarrollé una aplicación móvil para registrar asistencias del personal de Equilibrio Total mediante códigos QR"
+        },
+        "trackit": {
+            "title": "HPL Trackit",
+            "description": "Desarrollé una aplicación móvil tipo Uber enfocada en transportistas y servicios de carga. La plataforma permite solicitar viajes para el traslado de productos o mercancías, con seguimiento en tiempo real y gestión de transportes y choferes."
+        }
+    },
+    "inicio_project1": "Inicio"
+}

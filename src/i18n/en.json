@@ -1,0 +1,28 @@
+{
+    "greeting": "Hello, I am ",
+    "first_name": "Adrian",
+    "job": "Full-Stack Software Developer (Web & Mobile)",
+    "btn_first": "View my work",
+    "home": "Home",
+    "about": "About",
+    "Projects": "Projects",
+    "contact": "Contact",
+    "projects": {
+        "mayakoba": {
+            "title": "Mayakoba Finance Project",
+            "description": "I participated in the creation of the Purchase Order and Payment Order modules (Screenshots contain simulated data for demonstration purposes)."
+        },
+        "expomex": {
+            "title": "Expomex",
+            "description": "I helped collaborate on maintenance and bug fixes for this web application."
+        },
+        "equilibrio": {
+            "title": "Equilibrio Total Project",
+            "description": "I developed a mobile application to register attendance for Equilibrio Total staff using QR codes"
+        },
+        "trackit": {
+            "title": "HPL Trackit",
+            "description": "I developed an Uber-style mobile application for carriers and cargo services. The platform allows requesting trips for transporting products or goods, with real-time tracking and driver and transport management."
+        }
+    }
+}

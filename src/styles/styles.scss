@@ -1,0 +1,183 @@
+// About.scss
+// Uses your existing CSS variables: --bg, --primary, --accent, --text
+
+.about {
+  min-height: 100vh;
+  padding: 3rem 4rem;
+  color: var(--text);
+
+
+  &__title {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 3rem;
+    position: relative;
+    display: inline-block; 
+    text-align: center;
+    align-items: center;
+    z-index: 1;
+    
+    
+
+  }
+   &__title_container {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 3rem;
+    position: relative;
+    display: block; 
+    text-align: center;
+    align-items: center;
+    margin: auto;
+    gap: 0.5rem;
+    
+
+  }
+  &__title::after{
+        content: "";
+        position: absolute;
+        width: 80px;
+        height: 25px;
+        display: block;
+        background: var(--accent);
+        bottom: 10px;
+        right: -18px;
+        z-index: -1;
+
+    }
+ 
+
+
+  &__content {
+    display: flex;
+    align-items: flex-start;
+    gap: 4rem;
+    max-width: 1400px;
+    margin: auto;
+  }
+
+  // ── LEFT ─────────────────────────────────
+  &__left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  &__avatar {
+    width: 220px;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-icon {
+      font-size: 10rem;
+      color: var(--text);
+      opacity: 0.9;
+    }
+  }
+
+  &__bio {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    text-align: center;
+    color: var(--text);
+    opacity: 0.85;
+    max-width: 420px;
+  }
+
+  // ── RIGHT – SKILLS GRID ──────────────────
+  &__skills {
+    flex: 1;
+    display: grid;
+    // 3 columns; large cards span 1 col but 1.4× the row height
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 50px;
+    gap: 2.4rem 1rem;
+    align-items: start;
+  
+
+    // Layout matching the screenshot:
+    // Col1: JS, TS, MySQL  (medium)
+    // Col2: AWS, Spring, Postgres  (large)
+    // Col3: React Native (large, top), React, CSS, Git (medium)
+
+    // JS – col1 row1
+    .about__skill-card:nth-child(1) { grid-column: 1; grid-row: 2  / span 2; height: 100%; margin: 10 0  }
+    // React Native – col3 row1-2 (large, tall)
+    .about__skill-card:nth-child(2) { grid-column: 2 ; grid-row: 1 / span 2, ; height: 100%  }
+   // React – col3 row? placed after React Native
+    .about__skill-card:nth-child(3) { grid-column: 3; grid-row: 2 / span 2;  height: 100%}
+    // TS – col1 row2
+    .about__skill-card:nth-child(4) { grid-column: 1; grid-row: 4 / span 2; height: 100% }
+    // AWS – col2 row1-2 (large, tall)
+    .about__skill-card:nth-child(5) { grid-column: 2; grid-row: 3 / span 2; height: 100% }
+    // CSS – col3 row4 (same height as medium)
+    .about__skill-card:nth-child(6) { grid-column: 3; grid-row: 4 / span 2;  height: 100%}
+    // MySQL – col1 row3
+    .about__skill-card:nth-child(7) { grid-column: 1; grid-row: 6 / span 2; ; height: 100% }
+    // Spring Boot – col2 row3-4 (large)
+    .about__skill-card:nth-child(8) { grid-column: 2; grid-row: 5 / span 2; height: 100% }
+    // Git – col3 row5
+    .about__skill-card:nth-child(9) { grid-column: 3; grid-row: 6 / span 2; height: 100% }
+    // Postgres – col2 row5-6 (large)
+    .about__skill-card:nth-child(10) { grid-column: 2; grid-row: 7 / span 2; height: 100% }
+  }
+
+  &__skill-card {
+    background-color: var(--primary);
+    border: 1.5px solid var(--accent);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    cursor: default;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(26, 124, 167, 0.35);
+    }
+
+    &--large {
+      // large cards are already taller via grid-row span
+    }
+  }
+
+  &__skill-icon {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+  }
+
+  &__skill-name {
+    font-size: 0.8rem;
+    color: var(--text);
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  // ── RESPONSIVE ──────────────────────────
+  @media (max-width: 900px) {
+    padding: 2rem;
+
+    &__content {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__skills {
+    grid-auto-rows: 25px;
+
+      width: 100%;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

@@ -1,0 +1,15 @@
+/* DARK por defecto */
+:root {
+  --bg: #0e141b;
+  --primary: #0e141b;
+  --accent: #1A7CA7;
+  --text: #CBD5E1;
+}
+
+/* LIGHT solo si se activa */
+[data-theme="light"] {
+  --bg: #f8fafc;
+  --primary: #1E293B;
+  --accent: #1A7CA7;
+  --text: #0F172A;
+}
