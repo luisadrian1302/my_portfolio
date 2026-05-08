@@ -81,9 +81,9 @@ export const AboutComponent = () => {
         </h2>
       </div>
 
-      <div className="about__content">
+      <div className="about__content" >
         {/* Left side */}
-        <div className="about__left">
+        <div className="about__left" style={{width: "50%"}} >
           <div className="about__avatar">
             <FontAwesomeIcon icon={faUser} className="about__avatar-icon" />
           </div>
@@ -98,20 +98,25 @@ export const AboutComponent = () => {
         </div>
 
         {/* Right side - Skills grid */}
-        <div className="about__skills">
-          {skills.map((skill) => (
-            <div
-              key={skill.name}
-              className={`about__skill-card about__skill-card--${skill.size}`}
-            >
-              <img
-                src={skill.icon}
-                alt={skill.name}
-                className="about__skill-icon"
-              />
-              <span className="about__skill-name">{skill.name}</span>
-            </div>
-          ))}
+
+
+        <div className="" style={{width: "50%"}} > 
+
+          <div className="about__skills" style={{width: "80%", margin: "auto"}}>
+            {skills.map((skill) => (
+              <div
+                key={skill.name}
+                className={`about__skill-card about__skill-card--${skill.size} box inner`}
+              >
+                <img
+                  src={skill.icon}
+                  alt={skill.name}
+                  className="about__skill-icon"
+                />
+                <span className="about__skill-name">{skill.name}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
