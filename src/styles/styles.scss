@@ -13,41 +13,43 @@
     color: var(--text);
     margin-top: 3rem;
     position: relative;
-    display: inline-block; 
+    display: inline-block;
     text-align: center;
     align-items: center;
     z-index: 1;
-    
-    
+
+
 
   }
-   &__title_container {
+
+  &__title_container {
     font-size: 2.2rem;
     font-weight: 600;
     color: var(--text);
     margin-bottom: 3rem;
     position: relative;
-    display: block; 
+    display: block;
     text-align: center;
     align-items: center;
     margin: auto;
     gap: 0.5rem;
-    
+
 
   }
-  &__title::after{
-        content: "";
-        position: absolute;
-        width: 80px;
-        height: 25px;
-        display: block;
-        background: var(--accent);
-        bottom: 10px;
-        right: -18px;
-        z-index: -1;
 
-    }
- 
+  &__title::after {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 25px;
+    display: block;
+    background: var(--accent);
+    bottom: 10px;
+    right: -18px;
+    z-index: -1;
+
+  }
+
 
 
   &__content {
@@ -65,17 +67,33 @@
     flex-direction: column;
     align-items: center;
     gap: 2rem;
+    width: 50% !important;
   }
 
   &__avatar {
-    width: 220px;
-    height: 220px;
+    width: 180px;
+    height: 180px;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      padding: 1.5px;
+      background: linear-gradient(90deg, rgba(26, 124, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
 
     &-icon {
-      font-size: 10rem;
+      font-size: 6rem;
       color: var(--text);
       opacity: 0.9;
     }
@@ -96,9 +114,9 @@
     display: grid;
     // 3 columns; large cards span 1 col but 1.4× the row height
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem 1rem;
+    gap: .9rem .9rem;
     align-items: start;
-   
+
 
     // Layout matching the screenshot:
     // Col1: JS, TS, MySQL  (medium)
@@ -106,32 +124,96 @@
     // Col3: React Native (large, top), React, CSS, Git (medium)
 
     // JS – col1 row1
-    .about__skill-card:nth-child(1) { grid-column: 1; grid-row: 2  / span 2; height: 75%; margin: 10 0  }
+    .about__skill-card:nth-child(1) {
+      grid-column: 1;
+      grid-row: 2 / span 2;
+      height: 75%;
+      margin: 10 0
+    }
+
     // React Native – col3 row1-2 (large, tall)
-    .about__skill-card:nth-child(2) { grid-column: 2 ; grid-row: 1 / span 2, ; height: 75%  }
-   // React – col3 row? placed after React Native
-    .about__skill-card:nth-child(3) { grid-column: 3; grid-row: 2 / span 2;  height: 75%}
+    .about__skill-card:nth-child(2) {
+      grid-column: 2;
+      grid-row: 1 / span 2, ;
+      height: 75%
+    }
+
+    // React – col3 row? placed after React Native
+    .about__skill-card:nth-child(3) {
+      grid-column: 3;
+      grid-row: 2 / span 2;
+      height: 75%
+    }
+
     // TS – col1 row2
-    .about__skill-card:nth-child(4) { grid-column: 1; grid-row: 4 / span 2; height: 75% }
+    .about__skill-card:nth-child(4) {
+      grid-column: 1;
+      grid-row: 4 / span 2;
+      height: 75%
+    }
+
     // AWS – col2 row1-2 (large, tall)
-    .about__skill-card:nth-child(5) { grid-column: 2; grid-row: 3 / span 2; height: 75% }
+    .about__skill-card:nth-child(5) {
+      grid-column: 2;
+      grid-row: 3 / span 2;
+      height: 75%
+    }
+
     // CSS – col3 row4 (same height as medium)
-    .about__skill-card:nth-child(6) { grid-column: 3; grid-row: 4 / span 2;  height: 75%}
+    .about__skill-card:nth-child(6) {
+      grid-column: 3;
+      grid-row: 4 / span 2;
+      height: 75%
+    }
+
     // MySQL – col1 row3
-    .about__skill-card:nth-child(7) { grid-column: 1; grid-row: 6 / span 2; ; height: 75% }
+    .about__skill-card:nth-child(7) {
+      grid-column: 1;
+      grid-row: 6 / span 2;
+      ;
+      height: 75%
+    }
+
     // Spring Boot – col2 row3-4 (large)
-    .about__skill-card:nth-child(8) { grid-column: 2; grid-row: 5 / span 2; height: 75% }
+    .about__skill-card:nth-child(8) {
+      grid-column: 2;
+      grid-row: 5 / span 2;
+      height: 75%
+    }
+
     // Git – col3 row5
-    .about__skill-card:nth-child(9) { grid-column: 3; grid-row: 6 / span 2; height: 75% }
+    .about__skill-card:nth-child(9) {
+      grid-column: 3;
+      grid-row: 6 / span 2;
+      height: 75%
+    }
+
     // Postgres – col2 row5-6 (large)
-    .about__skill-card:nth-child(10) { grid-column: 2; grid-row: 7 / span 2; height: 75% }
+    .about__skill-card:nth-child(10) {
+      grid-column: 2;
+      grid-row: 7 / span 2;
+      height: 75%
+    }
   }
 
   &__skill-card {
     background-color: var(--primary);
-    border: 1.5px solid;
-    border-image: linear-gradient(90deg, rgba(26,124,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%) 1;
-    border-radius: 16px;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      padding: 1.5px;
+      background: linear-gradient(90deg, rgba(26, 124, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -139,7 +221,8 @@
     gap: 0.5rem;
     padding: 0.75rem;
     cursor: default;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease,
+    box-shadow 0.2s ease;
     width: 75%;
 
     &:hover {
@@ -147,8 +230,13 @@
       box-shadow: 0 6px 20px rgba(26, 124, 167, 0.35);
     }
 
-    &--large {
-      // large cards are already taller via grid-row span
+
+    &__skills {
+      grid-auto-rows: 25px;
+
+      width: 100%;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem 2rem;
     }
   }
 
@@ -166,19 +254,115 @@
   }
 
   // ── RESPONSIVE ──────────────────────────
-  @media (max-width: 900px) {
-    padding: 2rem;
+  @media (max-width: 1000px) {
+    &__skills {
+      gap: .4rem .4rem;
+       width: 100%;
+      .about__skill-card {
+        height: 80px !important;
 
-    &__content {
+      }
+    }
+     &__content {
       flex-direction: column;
       align-items: center;
     }
 
-    &__skills {
-    grid-auto-rows: 25px;
 
-      width: 100%;
-      grid-template-columns: repeat(3, 1fr);
+
+  }
+
+ 
+}
+
+
+.about {
+  &__content {
+    display: flex;
+    gap: 2%;
+    width: 100%;
+  }
+
+
+
+  &__right {
+    width: 48% !important; // Equivalente al 48% original
+  }
+
+  &__skills {
+    width: 80% !important;
+    ;
+    margin: auto;
+  }
+
+  // Media query para pantallas de 900px o menos
+  @media (max-width: 1000px) {
+    &__content {
+      flex-direction: column; // Cambia a columna
+      gap: 2rem;
+    }
+
+    &__left {
+      width: 100% !important; // Ambos al 100%
+    }
+
+    &__right {
+      width: 100% !important;
+      ; // Ambos al 100%
+    }
+
+    &__skills {
+      width: 70% !important;
+      margin: auto;
+      gap: .6rem .5rem;
+
+
+      &__skill-card {
+        width: 100px;
+      }
+       .about__skill-card {
+        height: 100px !important;
+
+      }
+    }
+  }
+
+ 
+
+  @media (max-width: 800px) {
+    &__skills {
+      width: 80% !important;
+      ; // Skills ocupan todo el ancho
+    }
+  }
+ @media (max-width: 700px) {
+    &__skills {
+      width: 100% !important;
+      ; // Skills ocupan todo el ancho
+    }
+  }
+  @media (max-width: 600px) {
+    &__skills {
+      width: 100% !important;
+      ; // Skills ocupan todo el ancho
+    }
+  }
+
+  @media (max-width: 550px) {
+    &__skills {
+      width: 100% !important;
+      ; // Skills ocupan todo el ancho
+    }
+  }
+
+  @media (max-width: 500px) {
+    &__skills {
+      width: 100% !important;
+
+      .about__skill-card {
+        height: 70px !important;
+
+      }
     }
   }
 }
