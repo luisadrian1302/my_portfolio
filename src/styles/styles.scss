@@ -3,7 +3,7 @@
 
 .about {
   min-height: 100vh;
-  padding: 3rem 4rem;
+  padding: 0rem 4rem;
   color: var(--text);
 
 
@@ -105,7 +105,7 @@
     text-align: center;
     color: var(--text);
     opacity: 0.85;
-    max-width: 420px;
+    max-width: 450px;
   }
 
   // ── RIGHT – SKILLS GRID ──────────────────
@@ -353,6 +353,9 @@
       width: 100% !important;
       ; // Skills ocupan todo el ancho
     }
+  
+    padding: 0 1em;
+    
   }
 
   @media (max-width: 500px) {

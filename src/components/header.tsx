@@ -4,10 +4,16 @@ import { FiMoon, FiSettings, FiSun } from "react-icons/fi";
 import { usePortfolioStore } from "../store/store";
 import { useTranslation } from "../hooks/useTranslation";
 import { useLanguageStore, type Language } from "../store/languageStore";
+import { HiHome, HiUser } from "react-icons/hi";
+import { FcAbout } from "react-icons/fc";
+import { LuFolderGit2, LuMail, LuUser } from "react-icons/lu";
+import { FaFolder, FaUser } from "react-icons/fa6";
+import { IoSettings } from "react-icons/io5";
+import { FaTelegramPlane } from "react-icons/fa";
 
 export const Header = ({ t }: any) => {
-    const { theme, setTheme } = usePortfolioStore();
-    const { lang, setLang } = useLanguageStore();
+    const { theme, setTheme, toggleHeader } = usePortfolioStore();
+    const { lang, setLang, } = useLanguageStore();
     const [activeSection, setActiveSection] = useState("home");
     const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
     const languageMenuRef = useRef(null);
@@ -25,45 +31,52 @@ export const Header = ({ t }: any) => {
     }, []);
 
     useEffect(() => {
-        const sections = ["home", "about", "projects", "contact"];
+        const sectionIds = ["home", "about", "projects", "contact"];
+        const sectionElements = sectionIds
+            .map((id) => document.getElementById(id))
+            .filter((el): el is HTMLElement => el !== null);
 
-        sections.forEach(section => {
-            const element = document.getElementById(section);
-            if (element) {
-                sectionRefs.current[section] = element;
-            }
-        });
+        if (sectionElements.length === 0) return;
 
-        // Detectar si es móvil (opcional)
-        const isMobile = window.innerWidth <= 768;
+        const getBestSectionId = () => {
+            const scores = sectionElements.map((section) => {
+                const rect = section.getBoundingClientRect();
+                const visibleTop = Math.max(rect.top, 0);
+                const visibleBottom = Math.min(rect.bottom, window.innerHeight);
+                const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+                const sectionCenter = rect.top + rect.height / 2;
+                const distanceFromCenter = Math.abs(sectionCenter - window.innerHeight / 2);
+                return {
+                    id: section.id,
+                    visibleHeight,
+                    distanceFromCenter,
+                };
+            });
 
-        // Configurar threshold diferente para móvil y desktop
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    // En móvil, usar 0.3 (30%) o incluso menos
-                    // En desktop, mantener 0.7 (70%)
-                    const threshold = 0.5;
+            return scores.reduce((best, current) => {
+                if (current.visibleHeight > best.visibleHeight) return current;
+                if (
+                    current.visibleHeight === best.visibleHeight &&
+                    current.distanceFromCenter < best.distanceFromCenter
+                ) {
+                    return current;
+                }
+                return best;
+            }, scores[0]).id;
+        };
 
-                    if (entry.isIntersecting && entry.intersectionRatio >= threshold) {
-                        setActiveSection(entry.target.id);
-                    }
-                });
-            },
-            {
-                threshold: .5, // Múltiples thresholds en móvil
-                rootMargin: "0px",
-            }
-        );
+        const updateActiveSection = () => {
+            const bestId = getBestSectionId();
+            setActiveSection((current) => (current === bestId ? current : bestId));
+        };
 
-        Object.values(sectionRefs.current).forEach((section) => {
-            if (section) observer.observe(section);
-        });
+        updateActiveSection();
+        window.addEventListener("scroll", updateActiveSection, { passive: true });
+        window.addEventListener("resize", updateActiveSection, { passive: true });
 
         return () => {
-            Object.values(sectionRefs.current).forEach((section) => {
-                if (section) observer.unobserve(section);
-            });
+            window.removeEventListener("scroll", updateActiveSection);
+            window.removeEventListener("resize", updateActiveSection);
         };
     }, []);
     const toggleTheme = () => {
@@ -88,7 +101,7 @@ export const Header = ({ t }: any) => {
     };
 
     return (
-        <header className="header">
+        <header className={ toggleHeader ? " header hideHeader" : "header"}>
             <nav className="nav-links">
                 <a
                     href="#home"
@@ -98,7 +111,11 @@ export const Header = ({ t }: any) => {
                         handleClick("home");
                     }}
                 >
-                    {t.home}
+                    <HiHome />
+                    <span className="text-nav">
+
+                        {t.home}
+                    </span>
                 </a>
                 <a
                     href="#about"
@@ -108,7 +125,12 @@ export const Header = ({ t }: any) => {
                         handleClick("about");
                     }}
                 >
-                    {t.about}
+                    <FaUser />
+                    <span className="text-nav">
+                        {t.about}
+
+                    </span>
+
                 </a>
                 <a
                     href="#projects"
@@ -118,7 +140,12 @@ export const Header = ({ t }: any) => {
                         handleClick("projects");
                     }}
                 >
-                    {t.Projects}
+                    <FaFolder />
+                    <span className="text-nav">
+                        {t.Projects}
+
+                    </span>
+
                 </a>
                 <a
                     href="#contact"
@@ -128,14 +155,29 @@ export const Header = ({ t }: any) => {
                         handleClick("contact");
                     }}
                 >
-                    {t.contact}
+                    <FaTelegramPlane />
+                    <span className="text-nav">
+                         {t.contact}
+
+                    </span>
+
                 </a>
 
-                <div className="language-menu-container" ref={languageMenuRef}>
-                    <FiSettings 
-                        className="settings-icon" 
+                <a
+
+                >
+                    {/* <LuMail /> */}
+                    <IoSettings
+                        className="settings-icon"
                         onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
                     />
+                    <span className="text-nav">
+                         {t.config}
+
+                    </span>
+
+                </a>
+                <div className="language-menu-container" ref={languageMenuRef}>
                     {isLanguageMenuOpen && (
                         <div className="language-dropdown">
                             <button

@@ -5,12 +5,39 @@
     "btn_first": "View my work",
     "home": "Home",
     "about": "About",
+    "aboutDesc1": "I'm a software engineer with over two years of experience, graduated from the Technological University of Tecámac. I focus on building modern web and mobile applications, integrating both frontend and backend expertise.",
+    "aboutDesc2": "I've worked on real-world projects with technologies like Vue.js, Express, TypeScript, Flutter, PHP, and MySQL. On my own, I've also continued developing web applications using React, Spring Boot, and PostgreSQL, always applying best practices and aiming to replicate professional environments.",
     "Projects": "Projects",
     "contact": "Contact",
+    "config": "Settings",
+
     "projects": {
         "mayakoba": {
             "title": "Mayakoba Finance Project",
-            "description": "I participated in the creation of the Purchase Order and Payment Order modules (Screenshots contain simulated data for demonstration purposes)."
+            "description": "I participated in the development of the Purchase Order and Payment Order modules, focused on managing, approving, and tracking internal requests. Screenshots contain simulated data for demonstration purposes.",
+            "modalContent": {
+                "overview": "I participated in the development of the Purchase Order and Payment Order modules, focused on managing, approving, and tracking internal requests. Screenshots contain simulated data for demonstration purposes.",
+                "mainFeaturesTitle": "Main Features",
+                "mainFeatures": [
+                    "Creation of purchase orders associated with suppliers, departments, and budgets.",
+                    "Department budget lookup including currency conversion to USD.",
+                    "Selection of approval workflows from finance users to directors.",
+                    "Draft management and submission of purchase orders as formal requests.",
+                    "Detailed order view including supplier information, budget, and approval signatures.",
+                    "Approval workflow through assigned user signatures.",
+                    "Automatic generation of payment orders after purchase approval.",
+                    "Payment validation and department budget update after execution.",
+                    "Purchase order and payment order management through CRUD tables."
+                ],
+                "participationTitle": "My Contribution",
+                "participation": [
+                    "Frontend development for forms, tables, and detail views.",
+                    "Implementation of CRUD operations for purchase and payment orders.",
+                    "Development of APIs for registration, retrieval, updates, and approval workflows.",
+                    "Database integration for suppliers, departments, budgets, approvers, and order statuses."
+                ],
+                "stackTitle": "Technology Stack"
+            }
         },
         "expomex": {
             "title": "Expomex",

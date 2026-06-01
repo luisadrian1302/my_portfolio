@@ -110,8 +110,8 @@ function App() {
 
         </div>
 
-        <div id='projects'
-          style={{ position: 'relative', zIndex: 1, height: "100vh" }}
+         <div id='projects'
+          style={{ position: 'relative', zIndex: 1, minHeight: "100vh"}}
         >
           <ProjectComponent/>
 
@@ -130,6 +130,8 @@ function App() {
           
 
         </div>
+
+       
 
       </div>
 

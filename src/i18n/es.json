@@ -4,13 +4,39 @@
     "job": "Desarrollador Full-Stack (Web & Mobile)",
     "btn_first": "Ver mi trabajo",
     "home": "Inicio",
-    "about": "Sobre mí",   
+    "about": "Sobre mí",
+    "aboutDesc1": "Soy un ingeniero de software con más de dos años de experiencia, graduado de la Universidad Tecnológica de Tecámac. Me enfoco en la creación de aplicaciones web y móviles contemporáneas, integrando conocimientos en frontend y backend.",
+    "aboutDesc2": "He trabajado en proyectos reales con tecnologías como Vue.js, Express, TypeScript, Flutter, PHP y MySQL. También, por cuenta propia, he seguido desarrollando aplicaciones web usando React, Spring Boot y PostgreSQL, siempre aplicando buenas prácticas y buscando replicar entornos profesionales.",
     "Projects": "Proyectos",
     "contact": "Contacto",
+    "config": "Ajustes", 
     "projects": {
         "mayakoba": {
             "title": "Proyecto Finanzas Mayakoba",
-            "description": "Participé en la creación de los módulos Orden de Compras y Orden de Pago (Las capturas tienen datos simulados para fines de demostración)."
+            "description": "Participé en el desarrollo de los módulos de Orden de Compra y Orden de Pago, enfocados en la gestión, autorización y seguimiento de solicitudes internas. Las capturas mostradas contienen datos simulados únicamente para fines de demostración.",
+            "modalContent": {
+                "overview": "Participé en el desarrollo de los módulos de Orden de Compra y Orden de Pago, enfocados en la gestión, autorización y seguimiento de solicitudes internas. Las capturas mostradas contienen datos simulados únicamente para fines de demostración.",
+                "mainFeaturesTitle": "Funcionalidades principales",
+                "mainFeatures": [
+                    "Registro de órdenes de compra asociadas a proveedores, departamentos y presupuestos.",
+                    "Consulta del presupuesto disponible del departamento seleccionado, incluyendo conversión de moneda a dólares.",
+                    "Selección de autorizadores por flujo, desde usuarios de finanzas hasta niveles directivos.",
+                    "Gestión de órdenes en estado borrador y envío como orden formal.",
+                    "Visualización detallada de la orden con información general, proveedor, presupuesto y sección de firmas.",
+                    "Flujo de autorización mediante firmas por usuario asignado.",
+                    "Generación de orden de pago a partir de una orden de compra autorizada.",
+                    "Validación de pagos y actualización del presupuesto disponible del departamento.",
+                    "Consulta de órdenes de compra y órdenes de pago mediante tablas con acciones CRUD."
+                ],
+                "participationTitle": "Mi participación",
+                "participation": [
+                    "Desarrollo del frontend de formularios, tablas y vistas de detalle.",
+                    "Implementación de acciones CRUD para órdenes de compra y órdenes de pago.",
+                    "Creación de APIs para registrar, consultar, actualizar y gestionar el flujo de autorización.",
+                    "Integración con base de datos para proveedores, departamentos, presupuestos, usuarios autorizadores y estados de las órdenes."
+                ],
+                "stackTitle": "Stack tecnológico"
+            }
         },
         "expomex": {
             "title": "Expomex",

@@ -30,6 +30,7 @@ import vehiculos_track from "../assets/images/trackit/vehiculos_track.jpeg"
 import embaeques_conf from "../assets/images/trackit/embaeques_conf.jpeg"
 import punto_entrega from "../assets/images/trackit/punto_entrega.jpeg"
 import graficas_track from "../assets/images/trackit/graficas_track.jpeg"
+import { ProjectModal } from "./ProjectModal";
 
 
 export const ProjectComponent = () => {
@@ -60,7 +61,48 @@ export const ProjectComponent = () => {
                     { src: crear_orden_compra_prov_phone, alt: "Inicio de orden de pago" },
                 ],
             },
-            selectDefault: "desktop"
+            selectDefault: "desktop",
+
+
+
+            modalContent: [
+                { type: "divider" },
+
+                {
+                    type: "paragraph",
+                    content: t?.projects?.mayakoba?.modalContent?.overview
+                },
+
+                {
+                    type: "list",
+                    title: t?.projects?.mayakoba?.modalContent?.mainFeaturesTitle,
+                    items: t?.projects?.mayakoba?.modalContent?.mainFeatures,
+                    variant: "dots"
+                },
+
+                {
+                    type: "list",
+                    title: t?.projects?.mayakoba?.modalContent?.participationTitle,
+                    items: t?.projects?.mayakoba?.modalContent?.participation,
+                    variant: "dots"
+                },
+
+                {
+                    type: "tech_stack",
+                    title: t?.projects?.mayakoba?.modalContent?.stackTitle,
+                    technologies: [
+                        { name: "PHP", icon: "🐘" },
+                        { name: "MySQL", icon: "🗄️" },
+                        { name: "JavaScript", icon: "🟨" },
+                        { name: "CSS", icon: "🎨" },
+                        { name: "APIs REST", icon: "🔗" }
+                    ]
+                }
+            ]
+
+
+
+
         },
         {
             title: t?.projects?.expomex?.title || "Expomex",
@@ -92,11 +134,20 @@ export const ProjectComponent = () => {
             selectDefault: "mobile"
 
         },
-         {
+        {
             title: t?.projects?.trackit?.title || "HPL trackit",
             tags: ["React native", "MySQL", "Express.js"],
             description: t?.projects?.trackit?.description || "Desarrollé una aplicación móvil tipo Uber enfocada en transportistas y servicios de carga. La plataforma permite solicitar viajes para el traslado de productos o mercancías, con seguimiento en tiempo real y gestión de transportes y choferes.",
-            uris: ["https://play.google.com/store/apps/details?id=com.hpltrackit.trackit&pcampaignid=web_share", "https://apps.apple.com/mx/app/hpl-track-it/id6758738570"],
+            uris: [{
+                url: "https://play.google.com/store/apps/details?id=com.hpltrackit.trackit&pcampaignid=web_share",
+                icon: "PlayStore",
+                text: "Ver en Android"
+                ,
+            }, {
+                url: "https://apps.apple.com/mx/app/hpl-track-it/id6758738570",
+                icon: "apple",
+                text: "Ver en IOS"
+            }],
             slides: {
                 mobile: [
                     { src: login_track, alt: "Login" },
@@ -107,6 +158,7 @@ export const ProjectComponent = () => {
                     { src: graficas_track, alt: "Gráficas" },
                 ],
             },
+
             selectDefault: "mobile"
 
         },
@@ -117,12 +169,12 @@ export const ProjectComponent = () => {
 
 
     }, [lang]);
-     useEffect(() => {
+    useEffect(() => {
         console.log(t);
         setProject(getProjects());
 
     }, [t]);
-       useEffect(() => {
+    useEffect(() => {
         loadTranslations();
 
     }, []);
@@ -131,12 +183,11 @@ export const ProjectComponent = () => {
 
 
 
-
     return (
 
 
-        <div className="projecta">
-            <div className="about__title_container" style={{maxWidth: "1200px"}}>
+        <div className="projects">
+            <div className="about__title_container" style={{ maxWidth: "1200px" }}>
 
                 <h2 className="about__title" style={{ marginBottom: "40px" }}>
                     {t?.Projects}
@@ -148,6 +199,8 @@ export const ProjectComponent = () => {
                     ))}
                 </div>
             </div>
+            {/* Modal */}
+
 
         </div>
     )

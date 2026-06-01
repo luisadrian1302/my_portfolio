@@ -72,7 +72,10 @@ export const AboutComponent = () => {
   }, [lang]);
 
   return (
-    <div className="about">
+    <div className="about" style={{
+      display: "flex",
+      flexDirection: "column"
+    }}>
       <div className="about__title_container">
 
         <h2 className="about__title">
@@ -81,19 +84,25 @@ export const AboutComponent = () => {
         </h2>
       </div>
 
-      <div className="about__content">
+      <div className="about__content" style={{
+        alignItems: "center", flex: 1
+
+      }}>
         {/* Left side */}
         <div className="about__left">
           <div className="about__avatar">
             <FontAwesomeIcon icon={faUser} className="about__avatar-icon" />
           </div>
-          <p className="about__bio">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-            when an unknown printer took a galley of type and scrambled it to make a type
-            specimen book. It has survived not only five centuries, but also the leap into
-            electronic typesetting, remaining essentially unchanged.
-          </p>
+          <div>
+            <p className="about__bio">
+              {t?.aboutDesc1}
+            </p>
+
+            <p className="about__bio">
+              {t?.aboutDesc2}
+
+            </p>
+          </div>
         </div>
 
         {/* Right side - Skills grid */}
