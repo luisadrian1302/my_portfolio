@@ -113,10 +113,10 @@ export const Header = ({ t }: any) => {
                     }}
                 >
                     <HiHome />
-                    <span className="text-nav">
+                    {/* <span className="text-nav">
 
                         {t.home}
-                    </span>
+                    </span> */}
                 </a>
                 <a
                     href="#about"
@@ -127,10 +127,10 @@ export const Header = ({ t }: any) => {
                     }}
                 >
                     <FaUser />
-                    <span className="text-nav">
+                    {/* <span className="text-nav">
                         {t.about}
 
-                    </span>
+                    </span> */}
 
                 </a>
                   <a
@@ -142,10 +142,10 @@ export const Header = ({ t }: any) => {
                     }}
                 >
                     <RiTimeLine />
-                    <span className="text-nav">
+                    {/* <span className="text-nav">
                         {t.contact}
 
-                    </span>
+                    </span> */}
 
                 </a>
                 <a
@@ -157,10 +157,10 @@ export const Header = ({ t }: any) => {
                     }}
                 >
                     <FaFolder />
-                    <span className="text-nav">
+                    {/* <span className="text-nav">
                         {t.Projects}
 
-                    </span>
+                    </span> */}
 
                 </a>
                 <a
@@ -172,10 +172,10 @@ export const Header = ({ t }: any) => {
                     }}
                 >
                     <FaTelegramPlane />
-                    <span className="text-nav">
+                    {/* <span className="text-nav">
                         {t.contact}
 
-                    </span>
+                    </span> */}
 
                 </a>
               
@@ -187,10 +187,10 @@ export const Header = ({ t }: any) => {
                         className="settings-icon"
                         onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
                     />
-                    <span className="text-nav">
+                    {/* <span className="text-nav">
                         {t.config}
 
-                    </span>
+                    </span> */}
 
                 </a>
                 <div className="language-menu-container" ref={languageMenuRef}>

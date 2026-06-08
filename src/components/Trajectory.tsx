@@ -23,7 +23,7 @@ interface TrajectoryItem {
 
 const trajectoryItems: TrajectoryItem[] = [
     {
-        year: "2024-actualidad",
+        year: "2024-hoy",
         title: "Full Stack Developer JR",
         subtitle: "Empresa actual (VLIM Soluciones Integrales en TIC)",
         description: "Desarrollo de aplicaciones web y moviles, integrando frontend, backend y bases de datos para resolver flujos reales de negocio.",
