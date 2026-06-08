@@ -12,6 +12,7 @@ import { getparticleOptionsOne } from './data/getparticleOptionsOne';
 import { getparticleOptionsDos } from './data/getparticleOptionsDos';
 import { AboutComponent } from './components/About';
 import { ProjectComponent } from './components/Projects';
+import { TrajectoryComponent } from './components/Trajectory';
 
 
 
@@ -96,42 +97,46 @@ function App() {
         <div id='about'
           style={{ position: 'relative', zIndex: 1 }}
         >
-
-
-
           <div className=""
             style={{ position: 'relative', zIndex: 100, }}
           >
-
             <AboutComponent />
+
+          </div>
+        </div>
+
+
+          <div className=""  id='trajectory'
+            style={{ position: 'relative', zIndex: 100,  minHeight: "100vh"}}
+          >
+
+            <TrajectoryComponent/>
 
 
           </div>
 
-        </div>
-
-         <div id='projects'
-          style={{ position: 'relative', zIndex: 1, minHeight: "100vh"}}
+        <div id='projects'
+          style={{ position: 'relative', zIndex: 1, minHeight: "100vh" }}
         >
-          <ProjectComponent/>
+          <ProjectComponent />
 
 
 
-          
+
 
         </div>
 
-           <div id='contact'
+        <div id='contact'
           style={{ position: 'relative', zIndex: 1, height: "100vh" }}
         >
 
 
 
-          
+
 
         </div>
 
-       
+
 
       </div>
 

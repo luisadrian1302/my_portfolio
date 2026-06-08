@@ -5,6 +5,8 @@
     "btn_first": "View my work",
     "home": "Home",
     "about": "About",
+    "trajectory": "Trayectoria",
+
     "aboutDesc1": "I'm a software engineer with over two years of experience, graduated from the Technological University of Tecámac. I focus on building modern web and mobile applications, integrating both frontend and backend expertise.",
     "aboutDesc2": "I've worked on real-world projects with technologies like Vue.js, Express, TypeScript, Flutter, PHP, and MySQL. On my own, I've also continued developing web applications using React, Spring Boot, and PostgreSQL, always applying best practices and aiming to replicate professional environments.",
     "Projects": "Projects",
@@ -14,7 +16,7 @@
     "projects": {
         "mayakoba": {
             "title": "Mayakoba Finance Project",
-            "description": "I participated in the development of the Purchase Order and Payment Order modules, focused on managing, approving, and tracking internal requests. Screenshots contain simulated data for demonstration purposes.",
+            "description": "Internal system for managing purchase and payment orders. I implemented approval flows, budget control, and automatic PO generation with PHP, MySQL, JavaScript, and CSS, reducing manual steps in the finance process.",
             "modalContent": {
                 "overview": "I participated in the development of the Purchase Order and Payment Order modules, focused on managing, approving, and tracking internal requests. Screenshots contain simulated data for demonstration purposes.",
                 "mainFeaturesTitle": "Main Features",
@@ -41,15 +43,78 @@
         },
         "expomex": {
             "title": "Expomex",
-            "description": "I helped collaborate on maintenance and bug fixes for this web application."
+            "description": "Web application with operational branch information. I implemented user roles, permission-based views, and zone/subzone queries with Vue.js, Express.js, TypeScript, and MySQL, improving data access by profile.",
+            "modalContent": {
+                "overview": "I worked on frontend and backend features for a web application built with Vue.js, Express.js with TypeScript, and MySQL. My work focused on improving the experience based on user roles and creating services to retrieve operational branch information.",
+                "mainFeaturesTitle": "Main Features",
+                "mainFeatures": [
+                    "Frontend section visibility controlled by the authenticated user's role.",
+                    "Zone and subzone lookup for registered branches.",
+                    "Data visualization through paginated tables.",
+                    "Search functionality to filter zone and subzone records.",
+                    "Integration between frontend views, REST endpoints, and the MySQL database."
+                ],
+                "participationTitle": "My Contribution",
+                "participation": [
+                    "Added roles to the authentication flow to show specific sections depending on the user.",
+                    "Developed Vue.js views and components for zone and subzone management.",
+                    "Created Express.js services and endpoints with TypeScript to return zones and subzones.",
+                    "Implemented paginated tables and search connected to the backend."
+                ],
+                "stackTitle": "Technology Stack"
+            }
         },
         "equilibrio": {
             "title": "Equilibrio Total Project",
-            "description": "I developed a mobile application to register attendance for Equilibrio Total staff using QR codes"
+            "description": "Mobile app for staff attendance control. I built login, temporary sessions, and dynamic QR validation with Flutter, PHP, and MySQL, allowing attendance registration only within the allowed time window.",
+            "modalContent": {
+                "overview": "I developed frontend and backend features for a mobile attendance application built with Flutter, PHP, and MySQL. The main flow allowed users to log in, keep a time-limited active session, and register attendance using temporary QR codes.",
+                "mainFeaturesTitle": "Main Features",
+                "mainFeatures": [
+                    "User login for the mobile application.",
+                    "Local session persistence with an approximate one-hour expiration.",
+                    "Dynamic QR code generation refreshed every 10 seconds.",
+                    "Backend QR token validation to prevent expired attendance records.",
+                    "Attendance registration only within the allowed check-in time window.",
+                    "Expiration messages when the token was no longer valid."
+                ],
+                "participationTitle": "My Contribution",
+                "participation": [
+                    "Implemented the Flutter frontend for the login flow.",
+                    "Developed the PHP backend to authenticate users and validate sessions.",
+                    "Added local persistence to keep sessions active for a limited time.",
+                    "Built the temporary QR flow and its backend validation.",
+                    "Applied business rules to validate attendance based on the user's check-in time."
+                ],
+                "stackTitle": "Technology Stack"
+            }
         },
         "trackit": {
             "title": "HPL Trackit",
-            "description": "I developed an Uber-style mobile application for carriers and cargo services. The platform allows requesting trips for transporting products or goods, with real-time tracking and driver and transport management."
+            "description": "Mobile app for cargo trips between clients and carriers. I built trip, vehicle, contact, negotiation, and metrics flows with React Native, Express.js, TypeScript, and MySQL, making transport operations easier to manage.",
+            "modalContent": {
+                "overview": "I participated in the development of a mobile application for carriers and cargo services, built with React Native, Express.js, TypeScript, and MySQL with stored procedures. This project had a higher level of complexity due to its software architecture and the number of operational flows involved.",
+                "mainFeaturesTitle": "Main Features",
+                "mainFeatures": [
+                    "Carrier user registration and login.",
+                    "Trip request, acceptance, rejection, and negotiation flows.",
+                    "Trip assignment or reassignment to other carriers.",
+                    "Vehicle management inside the application.",
+                    "Contact or friend management for trip collaboration.",
+                    "Specific trip lookup and carrier trip metrics.",
+                    "Architecture separated into presentation, infrastructure, and domain layers."
+                ],
+                "participationTitle": "My Contribution",
+                "participation": [
+                    "Collaborated mainly on building the mobile application with React Native.",
+                    "Worked on the presentation layer with screens, components, layouts, and styles.",
+                    "Organized models and interfaces in the domain layer for DTOs, responses, and requests.",
+                    "Integrated API calls and external implementations from the infrastructure layer.",
+                    "Supported backend work by creating endpoints to retrieve specific trips.",
+                    "Developed endpoints to generate carrier trip metrics."
+                ],
+                "stackTitle": "Technology Stack"
+            }
         }
     }
 }

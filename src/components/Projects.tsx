@@ -45,7 +45,7 @@ export const ProjectComponent = () => {
         {
             title: t?.projects?.mayakoba?.title || "Proyecto Finanzas Mayakoba",
             tags: ["PHP", "MySQL", "JavaScript", "CSS"],
-            description: t?.projects?.mayakoba?.description || "Participé en la creación de los módulos Orden de Compras y Orden de Pago (Las capturas tienen datos simulados para fines de demostración).",
+            description: t?.projects?.mayakoba?.description || "Sistema interno para gestionar órdenes de compra y pago. Implementé flujos de autorización, control de presupuestos y generación automática de OP con PHP, MySQL, JavaScript y CSS, reduciendo pasos manuales en el proceso financiero.",
             url: "https://mayakoba.com/",
             slides: {
                 desktop: [
@@ -107,7 +107,7 @@ export const ProjectComponent = () => {
         {
             title: t?.projects?.expomex?.title || "Expomex",
             tags: ["Vue.js", "MySQL", "Node.js", "Typescript", "Express.js"],
-            description: t?.projects?.expomex?.description || "Ayudé a colaborar en el mantenimiento y corrección de errores de esta aplicación web.",
+            description: t?.projects?.expomex?.description || "Aplicación web con información operativa por sucursales. Implementé roles de usuario, vistas por permisos y consultas de zonas/subzonas con Vue.js, Express.js, TypeScript y MySQL, mejorando el acceso a datos según cada perfil.",
             url: "https://expomex.com/",
             slides: {
                 desktop: [
@@ -117,13 +117,48 @@ export const ProjectComponent = () => {
                     { src: zonas, alt: "zonas" },
                 ],
             },
-            selectDefault: "desktop"
+            selectDefault: "desktop",
+
+            modalContent: [
+                { type: "divider" },
+
+                {
+                    type: "paragraph",
+                    content: t?.projects?.expomex?.modalContent?.overview
+                },
+
+                {
+                    type: "list",
+                    title: t?.projects?.expomex?.modalContent?.mainFeaturesTitle,
+                    items: t?.projects?.expomex?.modalContent?.mainFeatures,
+                    variant: "dots"
+                },
+
+                {
+                    type: "list",
+                    title: t?.projects?.expomex?.modalContent?.participationTitle,
+                    items: t?.projects?.expomex?.modalContent?.participation,
+                    variant: "dots"
+                },
+
+                {
+                    type: "tech_stack",
+                    title: t?.projects?.expomex?.modalContent?.stackTitle,
+                    technologies: [
+                        { name: "Vue.js" },
+                        { name: "Express.js" },
+                        { name: "TypeScript" },
+                        { name: "MySQL" },
+                        { name: "APIs REST" }
+                    ]
+                }
+            ]
 
         },
         {
             title: t?.projects?.equilibrio?.title || "Proyecto Equilibrio total",
             tags: ["Flutter", "MySQL", "PHP"],
-            description: t?.projects?.equilibrio?.description || "Desarrollé una aplicación móvil para registrar asistencias del personal de Equilibrio Total mediante códigos QR",
+            description: t?.projects?.equilibrio?.description || "App móvil para control de asistencias del personal. Desarrollé login, sesión temporal y validación de QR dinámico con Flutter, PHP y MySQL, permitiendo registrar asistencias solo dentro del horario permitido.",
             slides: {
                 mobile: [
                     { src: inicio_eq, alt: "Login" },
@@ -131,13 +166,48 @@ export const ProjectComponent = () => {
                     { src: recuperar_contraseña, alt: "recuperar contraseña" },
                 ],
             },
-            selectDefault: "mobile"
+            selectDefault: "mobile",
+
+            modalContent: [
+                { type: "divider" },
+
+                {
+                    type: "paragraph",
+                    content: t?.projects?.equilibrio?.modalContent?.overview
+                },
+
+                {
+                    type: "list",
+                    title: t?.projects?.equilibrio?.modalContent?.mainFeaturesTitle,
+                    items: t?.projects?.equilibrio?.modalContent?.mainFeatures,
+                    variant: "dots"
+                },
+
+                {
+                    type: "list",
+                    title: t?.projects?.equilibrio?.modalContent?.participationTitle,
+                    items: t?.projects?.equilibrio?.modalContent?.participation,
+                    variant: "dots"
+                },
+
+                {
+                    type: "tech_stack",
+                    title: t?.projects?.equilibrio?.modalContent?.stackTitle,
+                    technologies: [
+                        { name: "Flutter" },
+                        { name: "PHP" },
+                        { name: "MySQL" },
+                        { name: "Local Storage" },
+                        { name: "QR Tokens" }
+                    ]
+                }
+            ]
 
         },
         {
             title: t?.projects?.trackit?.title || "HPL trackit",
             tags: ["React native", "MySQL", "Express.js"],
-            description: t?.projects?.trackit?.description || "Desarrollé una aplicación móvil tipo Uber enfocada en transportistas y servicios de carga. La plataforma permite solicitar viajes para el traslado de productos o mercancías, con seguimiento en tiempo real y gestión de transportes y choferes.",
+            description: t?.projects?.trackit?.description || "App móvil para traslados de carga entre clientes y transportistas. Construí flujos de viajes, vehículos, contactos, negociación y métricas con React Native, Express.js, TypeScript y MySQL, facilitando la gestión operativa de transportes.",
             uris: [{
                 url: "https://play.google.com/store/apps/details?id=com.hpltrackit.trackit&pcampaignid=web_share",
                 icon: "PlayStore",
@@ -159,7 +229,42 @@ export const ProjectComponent = () => {
                 ],
             },
 
-            selectDefault: "mobile"
+            selectDefault: "mobile",
+
+            modalContent: [
+                { type: "divider" },
+
+                {
+                    type: "paragraph",
+                    content: t?.projects?.trackit?.modalContent?.overview
+                },
+
+                {
+                    type: "list",
+                    title: t?.projects?.trackit?.modalContent?.mainFeaturesTitle,
+                    items: t?.projects?.trackit?.modalContent?.mainFeatures,
+                    variant: "dots"
+                },
+
+                {
+                    type: "list",
+                    title: t?.projects?.trackit?.modalContent?.participationTitle,
+                    items: t?.projects?.trackit?.modalContent?.participation,
+                    variant: "dots"
+                },
+
+                {
+                    type: "tech_stack",
+                    title: t?.projects?.trackit?.modalContent?.stackTitle,
+                    technologies: [
+                        { name: "React Native" },
+                        { name: "Express.js" },
+                        { name: "TypeScript" },
+                        { name: "MySQL" },
+                        { name: "Procedimientos almacenados" }
+                    ]
+                }
+            ]
 
         },
     ];

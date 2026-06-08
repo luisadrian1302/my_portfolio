@@ -67,7 +67,11 @@ h3,
 h4,
 h5,
 h6,
-p, button, a, span, div {
+p,
+button,
+a,
+span,
+div {
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-optical-sizing: auto;
@@ -89,7 +93,7 @@ p, button, a, span, div {
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-        font-size: clamp(24px, 2.5vw, 16px);
+    font-size: clamp(24px, 2.5vw, 16px);
 
     transition: background-color 0.3s ease;
 }
@@ -100,25 +104,35 @@ p, button, a, span, div {
     border: 1px solid var(--accent);
     margin-top: 20px;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     font-size: clamp(16px, 2.2vw, 24px);
     transition: background-color 0.3s ease;
+
+
+   
+
+    &:focus,
+    &:focus-visible {
+        outline: none;
+        box-shadow: none;
+    }
+
 }
 
 
 h1 {
-  font-size: clamp(24px, 3vw, 45px);
+    font-size: clamp(24px, 3vw, 45px);
 }
 
 h2 {
-  font-size: clamp(16px, 2.5vw, 28px);
+    font-size: clamp(16px, 2.5vw, 28px);
 }
 
 h5 {
-  font-size: clamp(14px, 1.5vw, 18px);
+    font-size: clamp(14px, 1.5vw, 18px);
 }
 
-.bg{
+.bg {
     background-color: var(--bg);
 }

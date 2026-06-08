@@ -10,6 +10,7 @@ import { LuFolderGit2, LuMail, LuUser } from "react-icons/lu";
 import { FaFolder, FaUser } from "react-icons/fa6";
 import { IoSettings } from "react-icons/io5";
 import { FaTelegramPlane } from "react-icons/fa";
+import { RiTimeLine } from "react-icons/ri";
 
 export const Header = ({ t }: any) => {
     const { theme, setTheme, toggleHeader } = usePortfolioStore();
@@ -31,7 +32,7 @@ export const Header = ({ t }: any) => {
     }, []);
 
     useEffect(() => {
-        const sectionIds = ["home", "about", "projects", "contact"];
+        const sectionIds = ["home", "about", "trajectory", "projects", "contact"];
         const sectionElements = sectionIds
             .map((id) => document.getElementById(id))
             .filter((el): el is HTMLElement => el !== null);
@@ -101,7 +102,7 @@ export const Header = ({ t }: any) => {
     };
 
     return (
-        <header className={ toggleHeader ? " header hideHeader" : "header"}>
+        <header className={toggleHeader ? " header hideHeader" : "header"}>
             <nav className="nav-links">
                 <a
                     href="#home"
@@ -132,6 +133,21 @@ export const Header = ({ t }: any) => {
                     </span>
 
                 </a>
+                  <a
+                    href="#trajectory"
+                    className={activeSection === "trajectory" ? "active" : ""}
+                    onClick={(e) => {
+                        e.preventDefault();
+                        handleClick("trajectory");
+                    }}
+                >
+                    <RiTimeLine />
+                    <span className="text-nav">
+                        {t.contact}
+
+                    </span>
+
+                </a>
                 <a
                     href="#projects"
                     className={activeSection === "projects" ? "active" : ""}
@@ -157,12 +173,12 @@ export const Header = ({ t }: any) => {
                 >
                     <FaTelegramPlane />
                     <span className="text-nav">
-                         {t.contact}
+                        {t.contact}
 
                     </span>
 
                 </a>
-
+              
                 <a
 
                 >
@@ -172,7 +188,7 @@ export const Header = ({ t }: any) => {
                         onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
                     />
                     <span className="text-nav">
-                         {t.config}
+                        {t.config}
 
                     </span>
 

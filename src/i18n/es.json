@@ -5,6 +5,7 @@
     "btn_first": "Ver mi trabajo",
     "home": "Inicio",
     "about": "Sobre mí",
+    "trajectory": "Trayectoria",
     "aboutDesc1": "Soy un ingeniero de software con más de dos años de experiencia, graduado de la Universidad Tecnológica de Tecámac. Me enfoco en la creación de aplicaciones web y móviles contemporáneas, integrando conocimientos en frontend y backend.",
     "aboutDesc2": "He trabajado en proyectos reales con tecnologías como Vue.js, Express, TypeScript, Flutter, PHP y MySQL. También, por cuenta propia, he seguido desarrollando aplicaciones web usando React, Spring Boot y PostgreSQL, siempre aplicando buenas prácticas y buscando replicar entornos profesionales.",
     "Projects": "Proyectos",
@@ -13,7 +14,7 @@
     "projects": {
         "mayakoba": {
             "title": "Proyecto Finanzas Mayakoba",
-            "description": "Participé en el desarrollo de los módulos de Orden de Compra y Orden de Pago, enfocados en la gestión, autorización y seguimiento de solicitudes internas. Las capturas mostradas contienen datos simulados únicamente para fines de demostración.",
+            "description": "Sistema interno para gestionar órdenes de compra y pago. Implementé flujos de autorización, control de presupuestos y generación automática de OP con PHP, MySQL, JavaScript y CSS, reduciendo pasos manuales en el proceso financiero.",
             "modalContent": {
                 "overview": "Participé en el desarrollo de los módulos de Orden de Compra y Orden de Pago, enfocados en la gestión, autorización y seguimiento de solicitudes internas. Las capturas mostradas contienen datos simulados únicamente para fines de demostración.",
                 "mainFeaturesTitle": "Funcionalidades principales",
@@ -40,15 +41,78 @@
         },
         "expomex": {
             "title": "Expomex",
-            "description": "Ayudé a colaborar en el mantenimiento y corrección de errores de esta aplicación web."
+            "description": "Aplicación web con información operativa por sucursales. Implementé roles de usuario, vistas por permisos y consultas de zonas/subzonas con Vue.js, Express.js, TypeScript y MySQL, mejorando el acceso a datos según cada perfil.",
+            "modalContent": {
+                "overview": "Participé en el desarrollo de funcionalidades frontend y backend para una aplicación web construida con Vue.js, Express.js con TypeScript y MySQL. Mi trabajo se enfocó en mejorar la experiencia según el rol del usuario y en crear servicios para consultar información operativa de sucursales.",
+                "mainFeaturesTitle": "Funcionalidades principales",
+                "mainFeatures": [
+                    "Control de secciones visibles en frontend de acuerdo con el rol del usuario autenticado.",
+                    "Consulta de zonas y subzonas relacionadas con las sucursales registradas.",
+                    "Visualización de información mediante tablas con paginación.",
+                    "Buscador para filtrar registros de zonas y subzonas.",
+                    "Integración entre frontend, endpoints REST y base de datos MySQL."
+                ],
+                "participationTitle": "Mi participación",
+                "participation": [
+                    "Añadí roles al flujo de autenticación para mostrar secciones específicas según el usuario.",
+                    "Desarrollé vistas y componentes en Vue.js para la administración de zonas y subzonas.",
+                    "Creé endpoints y servicios en Express.js con TypeScript para retornar zonas y subzonas.",
+                    "Implementé tablas con paginación y buscador conectadas al backend."
+                ],
+                "stackTitle": "Stack tecnológico"
+            }
         },
         "equilibrio": {
             "title": "Proyecto Equilibrio total",
-            "description": "Desarrollé una aplicación móvil para registrar asistencias del personal de Equilibrio Total mediante códigos QR"
+            "description": "App móvil para control de asistencias del personal. Desarrollé login, sesión temporal y validación de QR dinámico con Flutter, PHP y MySQL, permitiendo registrar asistencias solo dentro del horario permitido.",
+            "modalContent": {
+                "overview": "Desarrollé funcionalidades frontend y backend para una aplicación móvil de asistencias construida con Flutter, PHP y MySQL. El flujo principal permitía iniciar sesión, mantener una sesión activa por tiempo limitado y registrar asistencias mediante códigos QR temporales.",
+                "mainFeaturesTitle": "Funcionalidades principales",
+                "mainFeatures": [
+                    "Inicio de sesión para usuarios de la aplicación móvil.",
+                    "Persistencia local de sesión con expiración aproximada de una hora.",
+                    "Generación de código QR dinámico actualizado cada 10 segundos.",
+                    "Validación del token QR desde backend para evitar registros expirados.",
+                    "Registro de asistencia únicamente dentro del rango permitido de entrada.",
+                    "Mensajes de expiración cuando el token dejaba de ser válido."
+                ],
+                "participationTitle": "Mi participación",
+                "participation": [
+                    "Implementé el frontend del inicio de sesión en Flutter.",
+                    "Desarrollé el backend en PHP para autenticar usuarios y validar sesiones.",
+                    "Agregué persistencia local para conservar la sesión activa durante un tiempo limitado.",
+                    "Construí el flujo de QR temporal y su validación contra el backend.",
+                    "Apliqué reglas de negocio para validar asistencia según la hora de entrada del usuario."
+                ],
+                "stackTitle": "Stack tecnológico"
+            }
         },
         "trackit": {
             "title": "HPL Trackit",
-            "description": "Desarrollé una aplicación móvil tipo Uber enfocada en transportistas y servicios de carga. La plataforma permite solicitar viajes para el traslado de productos o mercancías, con seguimiento en tiempo real y gestión de transportes y choferes."
+            "description": "App móvil para traslados de carga entre clientes y transportistas. Construí flujos de viajes, vehículos, contactos, negociación y métricas con React Native, Express.js, TypeScript y MySQL, facilitando la gestión operativa de transportes.",
+            "modalContent": {
+                "overview": "Participé en el desarrollo de una aplicación móvil para transportistas y servicios de carga, construida con React Native, Express.js, TypeScript y MySQL con procedimientos almacenados. El proyecto tuvo una complejidad mayor por el uso de arquitectura de software y por la cantidad de flujos operativos involucrados.",
+                "mainFeaturesTitle": "Funcionalidades principales",
+                "mainFeatures": [
+                    "Registro e inicio de sesión de usuarios transportistas.",
+                    "Solicitud, aceptación, rechazo y negociación de traslados.",
+                    "Asignación o reasignación de viajes a otros transportistas.",
+                    "Administración de vehículos dentro de la aplicación.",
+                    "Gestión de contactos o amigos para colaborar en traslados.",
+                    "Consulta de traslados específicos y métricas de viajes.",
+                    "Arquitectura separada en presentación, infraestructura y dominio."
+                ],
+                "participationTitle": "Mi participación",
+                "participation": [
+                    "Colaboré principalmente en la construcción de la aplicación móvil con React Native.",
+                    "Trabajé en la capa de presentación con pantallas, componentes, layouts y estilos.",
+                    "Organicé modelos e interfaces en la capa de dominio para DTOs, respuestas y requests.",
+                    "Integré llamadas a APIs e implementaciones externas desde la capa de infraestructura.",
+                    "Apoyé al backend creando endpoints para obtener traslados específicos.",
+                    "Desarrollé endpoints para generar métricas de viajes del transportista."
+                ],
+                "stackTitle": "Stack tecnológico"
+            }
         }
     },
     "inicio_project1": "Inicio"
