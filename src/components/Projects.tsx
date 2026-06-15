@@ -32,6 +32,21 @@ import punto_entrega from "../assets/images/trackit/punto_entrega.jpeg"
 import graficas_track from "../assets/images/trackit/graficas_track.jpeg"
 import { ProjectModal } from "./ProjectModal";
 
+import dash_landy from "../assets/images/landy/dash.png"
+import empleados_landy from "../assets/images/landy/empleados.png"
+import usuarios_landy from "../assets/images/landy/usuarios.png"
+import ventas_landy from "../assets/images/landy/ventas.png"
+import dash_landy_mobile from "../assets/images/landy/dash_mobile.png"
+import empleados_landy_mobile from "../assets/images/landy/empleados_mobile.png"
+import usuarios_landy_mobile from "../assets/images/landy/usuarios_mobile.png"
+import ventas_landy_mobile from "../assets/images/landy/ventas_mobile.png"
+
+import change_password_bj from "../assets/images/bj/change_password.jpeg"
+import chat_vecinal_bj from "../assets/images/bj/chat_vecinal.jpeg"
+import home_cameras_bj from "../assets/images/bj/home_cameras.jpeg"
+import load_cameras_bj from "../assets/images/bj/load_cameras.jpeg"
+import bj_app_video from "../assets/images/bj/BJ-App.mp4"
+
 
 export const ProjectComponent = () => {
     const { t, loadTranslations } = useTranslation();
@@ -42,7 +57,223 @@ export const ProjectComponent = () => {
     // ─── Demo usage ───────────────────────────────────────────────────────────────
 
     const getProjects = (): Project[] => [
+       
         {
+            title: t?.projects?.benitojuarez?.title || "Benito Juarez",
+            tags: ["Flutter", "Spring Boot", "JWT", "WebSockets", "Clean Architecture"],
+            description: t?.projects?.benitojuarez?.description || "",
+            uris: [
+                {
+                    url: bj_app_video,
+                    icon: "link",
+                    text: t?.projects?.benitojuarez?.commercialInfoLinkText || "Commercial info"
+                }
+            ],
+            slides: {
+                mobile: [
+                    { src: change_password_bj, alt: "Change password" },
+                    { src: home_cameras_bj, alt: "Camera monitoring home" },
+                    { src: load_cameras_bj, alt: "Camera loading" },
+                    { src: chat_vecinal_bj, alt: "Neighborhood chat" },
+                ],
+            },
+            selectDefault: "mobile",
+
+            modalContent: [
+                { type: "divider" },
+
+                {
+                    type: "paragraph",
+                    content: t?.projects?.benitojuarez?.modalContent?.disclaimer
+                },
+
+                {
+                    type: "paragraph",
+                    content: t?.projects?.benitojuarez?.modalContent?.overview
+                },
+
+                {
+                    type: "custom",
+                    component: (
+                        <div>
+                            <p style={{ fontSize: "12px", fontWeight: 600, color: "var(--text-muted, #64748B)", textTransform: "uppercase", letterSpacing: "0.07em", margin: "0 0 8px 0" }}>
+                                {t?.projects?.benitojuarez?.modalContent?.videoTitle}
+                            </p>
+                            <video
+                                src={bj_app_video}
+                                controls
+                                preload="metadata"
+                                style={{ width: "100%", borderRadius: "10px", border: "1px solid var(--border, rgba(255,255,255,0.07))", background: "#000" }}
+                            />
+                        </div>
+                    )
+                },
+
+                {
+                    type: "list",
+                    title: t?.projects?.benitojuarez?.modalContent?.mainFeaturesTitle,
+                    items: t?.projects?.benitojuarez?.modalContent?.mainFeatures,
+                    variant: "dots"
+                },
+
+                {
+                    type: "list",
+                    title: t?.projects?.benitojuarez?.modalContent?.participationTitle,
+                    items: t?.projects?.benitojuarez?.modalContent?.participation,
+                    variant: "dots"
+                },
+
+                {
+                    type: "tech_stack",
+                    title: t?.projects?.benitojuarez?.modalContent?.stackTitle,
+                    technologies: [
+                        { name: "Flutter" },
+                        { name: "Spring Boot" },
+                        { name: "Spring Security" },
+                        { name: "JWT" },
+                        { name: "WebSockets" },
+                        { name: "HikCentral" },
+                        { name: "M3U8" },
+                        { name: "Clean Architecture" },
+                        { name: "SOLID" }
+                    ]
+                }
+            ]
+
+        },
+        {
+            title: t?.projects?.landysystem?.title || "LandySystem",
+            tags: ["React", "Express.js", "TypeScript", "PostgreSQL", "Socket.IO"],
+            description: t?.projects?.landysystem?.description || "",
+            uris: [
+                {
+                    url: "https://dev.landysystem.com.mx/",
+                    icon: "website",
+                    text: t?.projects?.landysystem?.adminLinkText || "Admin"
+                },
+                {
+                    url: "https://pos-dev.landysystem.com.mx/",
+                    icon: "website",
+                    text: t?.projects?.landysystem?.posLinkText || "POS"
+                }
+            ],
+            slides: {
+                desktop: [
+                    { src: dash_landy, alt: "Dashboard" },
+                    { src: empleados_landy, alt: "Employees" },
+                    { src: usuarios_landy, alt: "Users" },
+                    { src: ventas_landy, alt: "Sales" },
+                ],
+                mobile: [
+                    { src: dash_landy_mobile, alt: "Mobile dashboard" },
+                    { src: empleados_landy_mobile, alt: "Mobile employees" },
+                    { src: usuarios_landy_mobile, alt: "Mobile users" },
+                    { src: ventas_landy_mobile, alt: "Mobile sales" },
+                ],
+            },
+            selectDefault: "desktop",
+
+            modalContent: [
+                { type: "divider" },
+
+                {
+                    type: "paragraph",
+                    content: t?.projects?.landysystem?.modalContent?.overview
+                },
+
+                {
+                    type: "list",
+                    title: t?.projects?.landysystem?.modalContent?.mainFeaturesTitle,
+                    items: t?.projects?.landysystem?.modalContent?.mainFeatures,
+                    variant: "dots"
+                },
+
+                {
+                    type: "list",
+                    title: t?.projects?.landysystem?.modalContent?.participationTitle,
+                    items: t?.projects?.landysystem?.modalContent?.participation,
+                    variant: "dots"
+                },
+
+                {
+                    type: "tech_stack",
+                    title: t?.projects?.landysystem?.modalContent?.stackTitle,
+                    technologies: [
+                        { name: "React" },
+                        { name: "Express.js" },
+                        { name: "TypeScript" },
+                        { name: "PostgreSQL" },
+                        { name: "Socket.IO" },
+                        { name: "JWT" }
+                    ]
+                }
+            ]
+
+        },
+        {
+            title: t?.projects?.trackit?.title || "HPL trackit",
+            tags: ["React native", "MySQL", "Express.js"],
+            description: t?.projects?.trackit?.description || "App móvil para traslados de carga entre clientes y transportistas. Construí flujos de viajes, vehículos, contactos, negociación y métricas con React Native, Express.js, TypeScript y MySQL, facilitando la gestión operativa de transportes.",
+            uris: [{
+                url: "https://play.google.com/store/apps/details?id=com.hpltrackit.trackit&pcampaignid=web_share",
+                icon: "PlayStore",
+                text: "Ver en Android"
+                ,
+            }, {
+                url: "https://apps.apple.com/mx/app/hpl-track-it/id6758738570",
+                icon: "apple",
+                text: "Ver en IOS"
+            }],
+            slides: {
+                mobile: [
+                    { src: login_track, alt: "Login" },
+                    { src: register_track, alt: "Registro" },
+                    { src: vehiculos_track, alt: "Vehículos" },
+                    { src: embaeques_conf, alt: "Configuración de embarques" },
+                    { src: punto_entrega, alt: "Punto de entrega" },
+                    { src: graficas_track, alt: "Gráficas" },
+                ],
+            },
+
+            selectDefault: "mobile",
+
+            modalContent: [
+                { type: "divider" },
+
+                {
+                    type: "paragraph",
+                    content: t?.projects?.trackit?.modalContent?.overview
+                },
+
+                {
+                    type: "list",
+                    title: t?.projects?.trackit?.modalContent?.mainFeaturesTitle,
+                    items: t?.projects?.trackit?.modalContent?.mainFeatures,
+                    variant: "dots"
+                },
+
+                {
+                    type: "list",
+                    title: t?.projects?.trackit?.modalContent?.participationTitle,
+                    items: t?.projects?.trackit?.modalContent?.participation,
+                    variant: "dots"
+                },
+
+                {
+                    type: "tech_stack",
+                    title: t?.projects?.trackit?.modalContent?.stackTitle,
+                    technologies: [
+                        { name: "React Native" },
+                        { name: "Express.js" },
+                        { name: "TypeScript" },
+                        { name: "MySQL" },
+                        { name: "Procedimientos almacenados" }
+                    ]
+                }
+            ]
+
+        },
+         {
             title: t?.projects?.mayakoba?.title || "Proyecto Finanzas Mayakoba",
             tags: ["PHP", "MySQL", "JavaScript", "CSS"],
             description: t?.projects?.mayakoba?.description || "Sistema interno para gestionar órdenes de compra y pago. Implementé flujos de autorización, control de presupuestos y generación automática de OP con PHP, MySQL, JavaScript y CSS, reduciendo pasos manuales en el proceso financiero.",
@@ -106,7 +337,7 @@ export const ProjectComponent = () => {
         },
         {
             title: t?.projects?.expomex?.title || "Expomex",
-            tags: ["Vue.js", "MySQL", "Node.js", "Typescript", "Express.js"],
+            tags: ["Vue.js", "MySQL", "Typescript", "Express.js"],
             description: t?.projects?.expomex?.description || "Aplicación web con información operativa por sucursales. Implementé roles de usuario, vistas por permisos y consultas de zonas/subzonas con Vue.js, Express.js, TypeScript y MySQL, mejorando el acceso a datos según cada perfil.",
             url: "https://expomex.com/",
             slides: {
@@ -199,69 +430,6 @@ export const ProjectComponent = () => {
                         { name: "MySQL" },
                         { name: "Local Storage" },
                         { name: "QR Tokens" }
-                    ]
-                }
-            ]
-
-        },
-        {
-            title: t?.projects?.trackit?.title || "HPL trackit",
-            tags: ["React native", "MySQL", "Express.js"],
-            description: t?.projects?.trackit?.description || "App móvil para traslados de carga entre clientes y transportistas. Construí flujos de viajes, vehículos, contactos, negociación y métricas con React Native, Express.js, TypeScript y MySQL, facilitando la gestión operativa de transportes.",
-            uris: [{
-                url: "https://play.google.com/store/apps/details?id=com.hpltrackit.trackit&pcampaignid=web_share",
-                icon: "PlayStore",
-                text: "Ver en Android"
-                ,
-            }, {
-                url: "https://apps.apple.com/mx/app/hpl-track-it/id6758738570",
-                icon: "apple",
-                text: "Ver en IOS"
-            }],
-            slides: {
-                mobile: [
-                    { src: login_track, alt: "Login" },
-                    { src: register_track, alt: "Registro" },
-                    { src: vehiculos_track, alt: "Vehículos" },
-                    { src: embaeques_conf, alt: "Configuración de embarques" },
-                    { src: punto_entrega, alt: "Punto de entrega" },
-                    { src: graficas_track, alt: "Gráficas" },
-                ],
-            },
-
-            selectDefault: "mobile",
-
-            modalContent: [
-                { type: "divider" },
-
-                {
-                    type: "paragraph",
-                    content: t?.projects?.trackit?.modalContent?.overview
-                },
-
-                {
-                    type: "list",
-                    title: t?.projects?.trackit?.modalContent?.mainFeaturesTitle,
-                    items: t?.projects?.trackit?.modalContent?.mainFeatures,
-                    variant: "dots"
-                },
-
-                {
-                    type: "list",
-                    title: t?.projects?.trackit?.modalContent?.participationTitle,
-                    items: t?.projects?.trackit?.modalContent?.participation,
-                    variant: "dots"
-                },
-
-                {
-                    type: "tech_stack",
-                    title: t?.projects?.trackit?.modalContent?.stackTitle,
-                    technologies: [
-                        { name: "React Native" },
-                        { name: "Express.js" },
-                        { name: "TypeScript" },
-                        { name: "MySQL" },
-                        { name: "Procedimientos almacenados" }
                     ]
                 }
             ]

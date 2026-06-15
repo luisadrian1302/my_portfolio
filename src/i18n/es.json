@@ -11,6 +11,41 @@
     "Projects": "Proyectos",
     "contact": "Contacto",
     "config": "Ajustes", 
+    "trajectoryLabels": {
+        "experience": "Experiencia",
+        "academic": "Académico",
+        "certificate": "Certificado",
+        "course": "Curso"
+    },
+    "trajectoryItems": {
+        "currentJob": {
+            "title": "Full Stack Developer JR",
+            "subtitle": "Empresa actual (VLIM Soluciones Integrales en TIC)",
+            "description": "Desarrollo de aplicaciones web y móviles, integrando frontend, backend y bases de datos para resolver flujos reales de negocio."
+        },
+        "softwareEngineering": {
+            "title": "Ingeniería en Software",
+            "subtitle": "Universidad Tecnológica",
+            "description": "Formación académica enfocada en análisis, diseño, desarrollo y mantenimiento de soluciones de software."
+        },
+        "internship": {
+            "title": "Becario de Desarrollo",
+            "subtitle": "Primeras colaboraciones profesionales en VLIM Soluciones Integrales en TIC",
+            "description": "Participación en tareas de desarrollo, corrección de errores e integración de funcionalidades en proyectos reales."
+        },
+        "scrumCertification": {
+            "title": "Certificación SCRUM Study",
+            "subtitle": "Certificado / plataforma",
+            "description": "Certificado obtenido tras completar un curso de la metodología ágil Scrum.",
+            "urlText": "Descargar certificado"
+        },
+        "springBootCourse": {
+            "title": "Curso de Spring Boot",
+            "subtitle": "Certificado de Spring Boot",
+            "description": "Práctica constante en tecnologías web usando Spring Boot.",
+            "urlText": "Descargar certificado"
+        }
+    },
     "projects": {
         "mayakoba": {
             "title": "Proyecto Finanzas Mayakoba",
@@ -83,6 +118,66 @@
                     "Agregué persistencia local para conservar la sesión activa durante un tiempo limitado.",
                     "Construí el flujo de QR temporal y su validación contra el backend.",
                     "Apliqué reglas de negocio para validar asistencia según la hora de entrada del usuario."
+                ],
+                "stackTitle": "Stack tecnológico"
+            }
+        },
+        "benitojuarez": {
+            "title": "Benito Juárez",
+            "description": "Aplicación móvil gubernamental pausada a mitad de desarrollo para monitoreo de cámaras, autenticación JWT, chat en tiempo real y reproducción de streams HLS (.m3u8) con Flutter, Spring Boot y WebSockets.",
+            "commercialInfoLinkText": "Info comercial",
+            "modalContent": {
+                "disclaimer": "Nota: las capturas, el video y los datos mostrados son ficticios y se usan únicamente con fines ilustrativos. No exponen información sensible ni datos reales relacionados con la aplicación.",
+                "overview": "Participé en el desarrollo de una aplicación móvil para el monitoreo en tiempo real de cámaras de vigilancia de una alcaldía utilizando Flutter y Clean Architecture. El proyecto fue pausado antes de completarse, por lo que actualmente no está en funcionamiento, pero representa trabajo relevante en arquitectura, seguridad, video en vivo y comunicación en tiempo real.",
+                "videoTitle": "Info comercial de la aplicación",
+                "mainFeaturesTitle": "Funcionalidades principales",
+                "mainFeatures": [
+                    "Aplicación móvil construida con Flutter y Clean Architecture.",
+                    "Funcionalidades backend desarrolladas con Spring Boot para una aplicación gubernamental.",
+                    "Gestión de usuarios y autenticación basada en JWT.",
+                    "Rutas protegidas mediante Spring Security.",
+                    "Obtención y uso del JWT desde la aplicación móvil para consumir servicios protegidos.",
+                    "Módulo de chat en tiempo real implementado con WebSockets.",
+                    "Vista móvil para el módulo de chat vecinal.",
+                    "Reproducción de transmisiones de video en vivo mediante streams HLS (.m3u8) provenientes de infraestructura HikCentral."
+                ],
+                "participationTitle": "Mi participación",
+                "participation": [
+                    "Colaboré en la implementación de funcionalidades backend con Spring Boot.",
+                    "Participé en módulos de gestión de usuarios, autenticación basada en JWT y mensajería en tiempo real mediante WebSockets.",
+                    "Integré en la app móvil el flujo para obtener y utilizar el token JWT.",
+                    "Desarrollé interfaces y funcionalidades móviles para el módulo de chat en Flutter.",
+                    "Integré servicios de comunicación en tiempo real con el backend.",
+                    "Implementé la reproducción de transmisiones de video en vivo mediante streams HLS (.m3u8) en Flutter.",
+                    "Consumí contenido proveniente de una infraestructura de videovigilancia basada en HikCentral.",
+                    "Documenté evidencias del avance aunque el proyecto quedara pausado antes de su lanzamiento."
+                ],
+                "stackTitle": "Stack tecnológico"
+            }
+        },
+        "landysystem": {
+            "title": "LandySystem",
+            "description": "ERP multisucursal con panel administrativo y punto de venta. Participé en módulos de usuarios, empleados, roles, autenticación JWT y pagos a crédito con actualizaciones en tiempo real mediante WebSockets.",
+            "adminLinkText": "Administrativo",
+            "posLinkText": "Punto de venta",
+            "modalContent": {
+                "overview": "Participé en el desarrollo de LandySystem, un ERP web multisucursal con una plataforma administrativa y una sección contable/POS. Mi trabajo se enfocó en la gestión de usuarios, empleados y roles, además de flujos financieros para ventas a crédito con sincronización en tiempo real.",
+                "mainFeaturesTitle": "Funcionalidades principales",
+                "mainFeatures": [
+                    "Administración de usuarios, empleados y roles para un entorno multisucursal.",
+                    "Autenticación y protección de rutas mediante JWT.",
+                    "Paneles de gestión construidos en React.js para operaciones administrativas.",
+                    "Módulo de pagos y abonos para ventas a crédito.",
+                    "Actualización en tiempo real de saldos, pagos y movimientos financieros mediante WebSockets.",
+                    "Integración entre frontend, APIs en Express.js y base de datos PostgreSQL."
+                ],
+                "participationTitle": "Mi participación",
+                "participation": [
+                    "Desarrollé funcionalidades para administrar usuarios, empleados y roles.",
+                    "Implementé autenticación basada en JWT en flujos administrativos.",
+                    "Construí paneles y vistas en React.js con TypeScript.",
+                    "Participé en el desarrollo del módulo de pagos y abonos para ventas a crédito.",
+                    "Integré sincronización en tiempo real con WebSockets/Socket.IO para mantener saldos y movimientos consistentes."
                 ],
                 "stackTitle": "Stack tecnológico"
             }

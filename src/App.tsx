@@ -13,6 +13,7 @@ import { getparticleOptionsDos } from './data/getparticleOptionsDos';
 import { AboutComponent } from './components/About';
 import { ProjectComponent } from './components/Projects';
 import { TrajectoryComponent } from './components/Trajectory';
+import { ContactComponent } from './components/Contact';
 
 
 
@@ -107,7 +108,7 @@ function App() {
 
 
           <div className=""  id='trajectory'
-            style={{ position: 'relative', zIndex: 100,  minHeight: "100vh"}}
+            style={{ position: 'relative', zIndex: 0,  minHeight: "100vh", }}
           >
 
             <TrajectoryComponent/>
@@ -127,12 +128,10 @@ function App() {
         </div>
 
         <div id='contact'
-          style={{ position: 'relative', zIndex: 1, height: "100vh" }}
+          style={{ position: 'relative', zIndex: 0, minHeight: "100vh" }}
         >
 
-
-
-
+          <ContactComponent />
 
         </div>
 

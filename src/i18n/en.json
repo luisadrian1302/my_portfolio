@@ -5,7 +5,7 @@
     "btn_first": "View my work",
     "home": "Home",
     "about": "About",
-    "trajectory": "Trayectoria",
+    "trajectory": "Trajectory",
 
     "aboutDesc1": "I'm a software engineer with over two years of experience, graduated from the Technological University of Tecámac. I focus on building modern web and mobile applications, integrating both frontend and backend expertise.",
     "aboutDesc2": "I've worked on real-world projects with technologies like Vue.js, Express, TypeScript, Flutter, PHP, and MySQL. On my own, I've also continued developing web applications using React, Spring Boot, and PostgreSQL, always applying best practices and aiming to replicate professional environments.",
@@ -13,6 +13,41 @@
     "contact": "Contact",
     "config": "Settings",
 
+    "trajectoryLabels": {
+        "experience": "Experience",
+        "academic": "Academic",
+        "certificate": "Certificate",
+        "course": "Course"
+    },
+    "trajectoryItems": {
+        "currentJob": {
+            "title": "Full Stack Developer JR",
+            "subtitle": "Current company (VLIM Soluciones Integrales en TIC)",
+            "description": "Development of web and mobile applications, integrating frontend, backend, and databases to solve real business workflows."
+        },
+        "softwareEngineering": {
+            "title": "Software Engineering",
+            "subtitle": "Technological University",
+            "description": "Academic training focused on analysis, design, development, and maintenance of software solutions."
+        },
+        "internship": {
+            "title": "Development Intern",
+            "subtitle": "First professional collaborations at VLIM Soluciones Integrales en TIC",
+            "description": "Participation in development tasks, bug fixing, and feature integration in real projects."
+        },
+        "scrumCertification": {
+            "title": "SCRUM Study Certification",
+            "subtitle": "Certificate / platform",
+            "description": "Certificate obtained after completing a course on the Scrum agile methodology.",
+            "urlText": "Download certificate"
+        },
+        "springBootCourse": {
+            "title": "Spring Boot Course",
+            "subtitle": "Spring Boot Certificate",
+            "description": "Ongoing practice in web technologies using Spring Boot.",
+            "urlText": "Download certificate"
+        }
+    },
     "projects": {
         "mayakoba": {
             "title": "Mayakoba Finance Project",
@@ -85,6 +120,66 @@
                     "Added local persistence to keep sessions active for a limited time.",
                     "Built the temporary QR flow and its backend validation.",
                     "Applied business rules to validate attendance based on the user's check-in time."
+                ],
+                "stackTitle": "Technology Stack"
+            }
+        },
+        "benitojuarez": {
+            "title": "Benito Juarez",
+            "description": "Paused government mobile app for camera monitoring, JWT authentication, real-time chat, and HLS (.m3u8) stream playback with Flutter, Spring Boot, and WebSockets.",
+            "commercialInfoLinkText": "Commercial info",
+            "modalContent": {
+                "disclaimer": "Note: the screenshots, video, and displayed data are fictitious and used only for illustrative purposes. They do not expose sensitive information or real data related to the application.",
+                "overview": "I participated in the development of a mobile application for real-time monitoring of municipal surveillance cameras using Flutter and Clean Architecture. The project was paused before completion, so it is not currently operational, but it represents meaningful work in architecture, security, live video, and real-time communication.",
+                "videoTitle": "Application commercial info",
+                "mainFeaturesTitle": "Main Features",
+                "mainFeatures": [
+                    "Mobile application built with Flutter and Clean Architecture.",
+                    "Backend features developed with Spring Boot for a government application.",
+                    "User management and JWT-based authentication.",
+                    "Protected routes with Spring Security.",
+                    "JWT retrieval and usage from the mobile app to consume protected services.",
+                    "Real-time chat module implemented with WebSockets.",
+                    "Mobile view for the neighborhood chat module.",
+                    "Live video playback through HLS (.m3u8) streams from a HikCentral-based surveillance infrastructure."
+                ],
+                "participationTitle": "My Contribution",
+                "participation": [
+                    "Collaborated on backend feature implementation with Spring Boot.",
+                    "Contributed to user management, JWT-based authentication, and real-time messaging modules with WebSockets.",
+                    "Integrated the mobile app flow to retrieve and use the JWT token.",
+                    "Developed mobile interfaces and features for the chat module in Flutter.",
+                    "Integrated real-time communication services with the backend.",
+                    "Implemented live video playback through HLS (.m3u8) streams in Flutter.",
+                    "Consumed content from a HikCentral-based video surveillance infrastructure.",
+                    "Documented evidence of the progress even though the project was paused before launch."
+                ],
+                "stackTitle": "Technology Stack"
+            }
+        },
+        "landysystem": {
+            "title": "LandySystem",
+            "description": "Multi-branch ERP with an administrative dashboard and POS/accounting area. I worked on user, employee, role, JWT authentication, and credit payment modules with real-time updates through WebSockets.",
+            "adminLinkText": "Admin",
+            "posLinkText": "POS",
+            "modalContent": {
+                "overview": "I contributed to LandySystem, a multi-branch web ERP with an administrative platform and a POS/accounting area. My work focused on user, employee, and role management, plus financial flows for credit sales with real-time synchronization.",
+                "mainFeaturesTitle": "Main Features",
+                "mainFeatures": [
+                    "User, employee, and role management for a multi-branch environment.",
+                    "JWT-based authentication and protected route flows.",
+                    "Management dashboards built in React.js for administrative operations.",
+                    "Payment and installment module for credit sales.",
+                    "Real-time updates for balances, payments, and financial movements through WebSockets.",
+                    "Integration between the frontend, Express.js APIs, and a PostgreSQL database."
+                ],
+                "participationTitle": "My Contribution",
+                "participation": [
+                    "Developed features to manage users, employees, and roles.",
+                    "Implemented JWT-based authentication in administrative flows.",
+                    "Built React.js and TypeScript dashboards and views.",
+                    "Contributed to the payment and installment module for credit sales.",
+                    "Integrated real-time synchronization with WebSockets/Socket.IO to keep balances and movements consistent."
                 ],
                 "stackTitle": "Technology Stack"
             }
