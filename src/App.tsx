@@ -4,8 +4,10 @@ import "./styles/_variables.scss";
 import "./styles/app.scss";
 import "./styles/styles.scss";
 import { useTranslation } from './hooks/useTranslation';
-import { useLanguageStore, type Language } from './store/languageStore';
+import { useLanguageStore } from './store/languageStore';
 import { FaArrowDown } from 'react-icons/fa6';
+import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
+import { FiMail } from 'react-icons/fi';
 import { Header } from './components/header';
 import { ParticleBackground } from './components/ParticleBackground';
 import { getparticleOptionsOne } from './data/getparticleOptionsOne';
@@ -13,31 +15,45 @@ import { getparticleOptionsDos } from './data/getparticleOptionsDos';
 import { AboutComponent } from './components/About';
 import { ProjectComponent } from './components/Projects';
 import { TrajectoryComponent } from './components/Trajectory';
-import { ContactComponent } from './components/Contact';
 
+const contactLinks = {
+  linkedin: "https://www.linkedin.com/",
+  email: "mailto:lm0336172@gmail.com",
+  github: "https://github.com/",
+};
 
+type AppTranslations = {
+  greeting?: string;
+  first_name?: string;
+  job?: string;
+  btn_first?: string;
+  footer?: {
+    eyebrow?: string;
+    title?: string;
+    description?: string;
+    linkedin?: string;
+    email?: string;
+    github?: string;
+    copyright?: string;
+  };
+};
+
+type ParticleOptionsFactory = (theme: string | undefined, position: string) => object;
+const createParticleOptionsOne = getparticleOptionsOne as unknown as ParticleOptionsFactory;
+const createParticleOptionsDos = getparticleOptionsDos as unknown as ParticleOptionsFactory;
 
 function App() {
-
-  const { theme, setTheme } = usePortfolioStore(); // ✅ hook aquí
-  const { t, loadTranslations, loadingTranslation } = useTranslation();
-
-  const { setLang, lang } = useLanguageStore();
-
-
-  const refreshScreen = () => {
-    loadTranslations();
-  }
+  const { theme } = usePortfolioStore();
+  const { t, loadTranslations } = useTranslation();
+  const { lang } = useLanguageStore();
+  const copy = t as AppTranslations;
+  const footerCopy = copy.footer || {};
 
   useEffect(() => {
-    console.log(theme);
-
-    refreshScreen();
+    loadTranslations();
   }, []);
 
-
   useEffect(() => {
-    // Si theme es undefined, no seteamos light → queda dark
     if (theme === "light") {
       document.documentElement.setAttribute("data-theme", "light");
     } else {
@@ -49,30 +65,21 @@ function App() {
     loadTranslations();
   }, [lang]);
 
-  const handleChangeTranslation = async (lenguaje: Language) => {
-    setLang(lenguaje);
-
-  };
-
-
-
-
   return (
     <>
-      <Header t={t} />
-      <div className=""
-        style={{ position: 'relative', zIndex: 2, transition: "all 1s ease-in-out", }}
+      <Header />
+      <div
+        style={{ position: 'relative', zIndex: 2, transition: "all 1s ease-in-out" }}
       >
-
-        <div className="presentation" style={{ position: 'relative', zIndex: 1 }} id='home'>
-
-
-          <ParticleBackground id={"tsparticles"} particlesOption={getparticleOptionsOne(theme, "absolute")} />
+        <div className="presentation" style={{ position: 'relative', zIndex: 1 }} id="home">
+          <ParticleBackground id="tsparticles" particlesOption={createParticleOptionsOne(theme, "absolute")} />
           <div className="contenedor-presentation">
-            <h1 style={{ textAlign: "center" }}>{t.greeting}  <span className="accent-text">{t.first_name}</span></h1>
-            <h1 style={{ textAlign: "center" }}>{t.job}</h1>
+            <h1 style={{ textAlign: "center" }}>
+              {copy.greeting} <span className="accent-text">{copy.first_name}</span>
+            </h1>
+            <h1 style={{ textAlign: "center" }}>{copy.job}</h1>
             <button
-              className='btn-accent-outline'
+              className="btn-accent-outline"
               style={{
                 padding: "10px 90px",
                 display: "flex",
@@ -86,65 +93,80 @@ function App() {
                 }
               }}
             >
-              {t.btn_first} <FaArrowDown style={{ marginLeft: "15px" }} />
+              {copy.btn_first} <FaArrowDown style={{ marginLeft: "15px" }} />
             </button>
-
           </div>
-
         </div>
 
+        <ParticleBackground id="tsparticles2" particlesOption={createParticleOptionsDos(theme, "fixed")} />
 
-        <ParticleBackground id={"tsparticles2"} particlesOption={getparticleOptionsDos(theme, "fixed")} />
-        <div id='about'
-          style={{ position: 'relative', zIndex: 1 }}
-        >
-          <div className=""
-            style={{ position: 'relative', zIndex: 100, }}
-          >
+        <div id="about" style={{ position: 'relative', zIndex: 1 }}>
+          <div style={{ position: 'relative', zIndex: 100 }}>
             <AboutComponent />
-
           </div>
         </div>
 
+        <div
+          id="trajectory"
+          style={{ position: 'relative', zIndex: 0, minHeight: "100vh" }}
+        >
+          <TrajectoryComponent />
+        </div>
 
-          <div className=""  id='trajectory'
-            style={{ position: 'relative', zIndex: 0,  minHeight: "100vh", }}
-          >
-
-            <TrajectoryComponent/>
-
-
-          </div>
-
-        <div id='projects'
+        <div
+          id="projects"
           style={{ position: 'relative', zIndex: 1, minHeight: "100vh" }}
         >
           <ProjectComponent />
-
-
-
-
-
         </div>
 
-        <div id='contact'
-          style={{ position: 'relative', zIndex: 0, minHeight: "100vh" }}
-        >
+        <footer className="portfolio-footer" id='contact'>
+          <div className="portfolio-footer__content">
+            <div className="portfolio-footer__copy">
+              <span className="portfolio-footer__eyebrow">{footerCopy.eyebrow}</span>
+              <h2>{footerCopy.title}</h2>
+              <p>{footerCopy.description}</p>
+            </div>
 
-          <ContactComponent />
+            <div className="portfolio-footer__links">
+              <a
+                href={contactLinks.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={footerCopy.linkedin}
+                title={footerCopy.linkedin}
+              >
+                <FaLinkedinIn />
+                <span>{footerCopy.linkedin}</span>
+              </a>
+              <a
+                href={contactLinks.email}
+                aria-label={footerCopy.email}
+                title={footerCopy.email}
+              >
+                <FiMail />
+                <span>{footerCopy.email}</span>
+              </a>
+              <a
+                href={contactLinks.github}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={footerCopy.github}
+                title={footerCopy.github}
+              >
+                <FaGithub />
+                <span>{footerCopy.github}</span>
+              </a>
+            </div>
+          </div>
 
-        </div>
+          <p className="portfolio-footer__copyright">{footerCopy.copyright}</p>
 
-
-
+          {/* <div className="portfolio-footer-color"></div> */}
+        </footer>
       </div>
-
-
-
-
     </>
-  )
+  );
 }
 
-export default App
-
+export default App;

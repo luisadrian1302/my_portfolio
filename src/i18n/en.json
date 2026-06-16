@@ -211,5 +211,14 @@
                 "stackTitle": "Technology Stack"
             }
         }
+    },
+    "footer": {
+        "eyebrow": "Let's connect",
+        "title": "Let's shape the next idea into something real.",
+        "description": "I'm open to collaborating on web and mobile products, backend integrations, and carefully crafted digital experiences.",
+        "linkedin": "LinkedIn",
+        "email": "Email",
+        "github": "GitHub",
+        "copyright": "Designed and developed by Adrian."
     }
 }

@@ -59,7 +59,7 @@ export const ProjectComponent = () => {
     const getProjects = (): Project[] => [
        
         {
-            title: t?.projects?.benitojuarez?.title || "Benito Juarez",
+            title: t?.projects?.benitojuarez?.title || "B+enito Juárez",
             tags: ["Flutter", "Spring Boot", "JWT", "WebSockets", "Clean Architecture"],
             description: t?.projects?.benitojuarez?.description || "",
             uris: [

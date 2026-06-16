@@ -26,7 +26,8 @@
         justify-content: center;
         justify-content: end;
 
-        a {
+        a,
+        .settings-button {
             text-decoration: none;
             color: var(--text);
             font-weight: 400;
@@ -34,7 +35,8 @@
             cursor: pointer;
             margin-top: 10px;
             padding: .5rem 0;
-
+            border: 0;
+            background: transparent;
             font-weight: bold;
 
             &.active {
@@ -53,7 +55,8 @@
         }
 
         @media (hover: hover) and (pointer: fine) {
-            a:hover {
+            a:hover,
+            .settings-button:hover {
                 color: var(--accent);
                 scale: 1.3;
             }
@@ -64,13 +67,15 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             }
             // Todos los a se escalan ligeramente hacia arriba
-            a {
+            a,
+            .settings-button {
                 scale: 0.95;
               
             }
 
             // El hover mantiene su escala grande
-            a:hover {
+            a:hover,
+            .settings-button:hover {
                 scale: 2;
                 transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
                 margin: 1em 0;

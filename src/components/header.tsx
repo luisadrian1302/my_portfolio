@@ -13,7 +13,7 @@ import { FaTelegramPlane } from "react-icons/fa";
 import { RiTimeLine } from "react-icons/ri";
 
 export const Header = ({ t }: any) => {
-    const { theme, setTheme, toggleHeader } = usePortfolioStore();
+    const { theme, setTheme, toggleHeader , toggleHeaderTrue, toggleHeaderFalse} = usePortfolioStore();
     const { lang, setLang, } = useLanguageStore();
     const [activeSection, setActiveSection] = useState("home");
     const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
@@ -32,6 +32,7 @@ export const Header = ({ t }: any) => {
     }, []);
 
     useEffect(() => {
+        
         const sectionIds = ["home", "about", "trajectory", "projects", "contact"];
         const sectionElements = sectionIds
             .map((id) => document.getElementById(id))
@@ -68,6 +69,24 @@ export const Header = ({ t }: any) => {
 
         const updateActiveSection = () => {
             const bestId = getBestSectionId();
+            console.log(bestId);
+            
+            if (bestId == "contact" || bestId == "home") {
+                toggleHeaderTrue()
+            }else{
+                let verificarModalAbierto = document.querySelector(".openModalShow")
+                if(!verificarModalAbierto){
+                    
+                    toggleHeaderFalse()
+                }else{
+                    
+                toggleHeaderTrue()
+
+                }
+                
+
+            }
+            
             setActiveSection((current) => (current === bestId ? current : bestId));
         };
 

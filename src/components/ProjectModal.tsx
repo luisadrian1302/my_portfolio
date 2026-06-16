@@ -32,7 +32,16 @@ export const ProjectModal = ({ isOpen, onClose, project, initialView, initialIma
             setSelectedIndex(initialImageIndex)
             toggleHeaderTrue()
         }else{
-            toggleHeaderFalse()
+            let documento = document.querySelector(".active");
+            console.log(documento);
+
+            let href = documento?.getAttribute("href")
+            if (href != "#home" && href != "#contact") {
+                
+                toggleHeaderFalse()
+            }
+            
+           
 
         }
     }, [isOpen])
@@ -146,7 +155,7 @@ export const ProjectModal = ({ isOpen, onClose, project, initialView, initialIma
     return (
         <>
             <style>{responsiveStyles}</style>
-            <div style={{...modalOverlayStyle, scale: isOpen ? 1: 0 }} onClick={onClose} >
+            <div style={{...modalOverlayStyle, scale: isOpen ? 1: 0 }} onClick={onClose} className={isOpen ? "openModalShow": ""}>
                 <div style={modalContainerStyle} onClick={(e) => e.stopPropagation()} className="principal">
 
                     {/* Columna izquierda - Galería */}

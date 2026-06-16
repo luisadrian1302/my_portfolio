@@ -210,5 +210,14 @@
             }
         }
     },
-    "inicio_project1": "Inicio"
+    "inicio_project1": "Inicio",
+    "footer": {
+        "eyebrow": "Conectemos",
+        "title": "Hagamos que la siguiente idea tome forma.",
+        "description": "Estoy abierto a colaborar en productos web y moviles, integraciones backend y experiencias digitales bien cuidadas.",
+        "linkedin": "LinkedIn",
+        "email": "Correo electronico",
+        "github": "GitHub",
+        "copyright": "Disenado y desarrollado por Adrian."
+    }
 }

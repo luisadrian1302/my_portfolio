@@ -20,7 +20,7 @@ export const usePortfolioStore = create<portfolioStore>()(
   persist(
     (set, get) => ({
       theme: undefined,
-      toggleHeader: false,
+      toggleHeader: true,
       setTheme: (theme) => {
         set({ theme });
       },
