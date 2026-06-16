@@ -17,9 +17,9 @@ import { ProjectComponent } from './components/Projects';
 import { TrajectoryComponent } from './components/Trajectory';
 
 const contactLinks = {
-  linkedin: "https://www.linkedin.com/",
+  linkedin: "https://www.linkedin.com/in/luis-adrian-1a2b81223/",
   email: "mailto:lm0336172@gmail.com",
-  github: "https://github.com/",
+  github: "https://github.com/luisadrian1302",
 };
 
 type AppTranslations = {
