@@ -2,10 +2,15 @@
   "name": "my-app",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://luisadrian1302.github.io/my_portfolio/",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:deploy": "vite build",
+    "predeploy": "npm run build:deploy",
+    "deploy": "gh-pages -d dist",
+    "typecheck": "tsc -b --pretty false",
     "lint": "eslint .",
     "preview": "vite preview"
   },

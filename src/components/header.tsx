@@ -1,28 +1,24 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type MouseEvent as ReactMouseEvent } from "react";
 import "../styles/header.scss";
-import { FiMoon, FiSettings, FiSun } from "react-icons/fi";
 import { usePortfolioStore } from "../store/store";
-import { useTranslation } from "../hooks/useTranslation";
 import { useLanguageStore, type Language } from "../store/languageStore";
-import { HiHome, HiUser } from "react-icons/hi";
-import { FcAbout } from "react-icons/fc";
-import { LuFolderGit2, LuMail, LuUser } from "react-icons/lu";
+import { HiHome } from "react-icons/hi";
 import { FaFolder, FaUser } from "react-icons/fa6";
 import { IoSettings } from "react-icons/io5";
 import { FaTelegramPlane } from "react-icons/fa";
 import { RiTimeLine } from "react-icons/ri";
 
-export const Header = ({ t }: any) => {
-    const { theme, setTheme, toggleHeader , toggleHeaderTrue, toggleHeaderFalse} = usePortfolioStore();
-    const { lang, setLang, } = useLanguageStore();
+export const Header = () => {
+    const toggleHeader = usePortfolioStore((state) => state.toggleHeader);
+    const lang = useLanguageStore((state) => state.lang);
+    const setLang = useLanguageStore((state) => state.setLang);
     const [activeSection, setActiveSection] = useState("home");
     const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
-    const languageMenuRef = useRef(null);
-    const sectionRefs = useRef({});
+    const languageMenuRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (languageMenuRef.current && !languageMenuRef.current.contains(event.target)) {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (languageMenuRef.current && !languageMenuRef.current.contains(event.target as Node)) {
                 setIsLanguageMenuOpen(false);
             }
         };
@@ -69,50 +65,46 @@ export const Header = ({ t }: any) => {
 
         const updateActiveSection = () => {
             const bestId = getBestSectionId();
-            console.log(bestId);
-            
-            if (bestId == "contact" || bestId == "home") {
-                toggleHeaderTrue()
-            }else{
-                let verificarModalAbierto = document.querySelector(".openModalShow")
-                if(!verificarModalAbierto){
-                    
-                    toggleHeaderFalse()
-                }else{
-                    
-                toggleHeaderTrue()
+            const modalIsOpen = Boolean(document.querySelector(".openModalShow"));
+            const shouldHideHeader = bestId === "contact" || bestId === "home" || modalIsOpen;
+            const store = usePortfolioStore.getState();
 
-                }
-                
-
+            if (store.toggleHeader !== shouldHideHeader) {
+                if (shouldHideHeader) store.toggleHeaderTrue();
+                else store.toggleHeaderFalse();
             }
             
             setActiveSection((current) => (current === bestId ? current : bestId));
         };
 
+        let animationFrameId: number | null = null;
+
+        const scheduleUpdate = () => {
+            if (animationFrameId !== null) return;
+
+            animationFrameId = window.requestAnimationFrame(() => {
+                animationFrameId = null;
+                updateActiveSection();
+            });
+        };
+
         updateActiveSection();
-        window.addEventListener("scroll", updateActiveSection, { passive: true });
-        window.addEventListener("resize", updateActiveSection, { passive: true });
+        window.addEventListener("scroll", scheduleUpdate, { passive: true });
+        window.addEventListener("resize", scheduleUpdate, { passive: true });
 
         return () => {
-            window.removeEventListener("scroll", updateActiveSection);
-            window.removeEventListener("resize", updateActiveSection);
+            window.removeEventListener("scroll", scheduleUpdate);
+            window.removeEventListener("resize", scheduleUpdate);
+            if (animationFrameId !== null) window.cancelAnimationFrame(animationFrameId);
         };
     }, []);
-    const toggleTheme = () => {
-        if (theme === "light") {
-            setTheme(undefined);
-        } else {
-            setTheme("light");
-        }
-    };
 
     const handleChangeLanguage = (newLang: Language) => {
         setLang(newLang);
         setIsLanguageMenuOpen(false);
     };
 
-    const handleClick = (sectionId) => {
+    const handleClick = (sectionId: string) => {
         const element = document.getElementById(sectionId);
         if (element) {
             element.scrollIntoView({ behavior: "smooth" });
@@ -126,7 +118,7 @@ export const Header = ({ t }: any) => {
                 <a
                     href="#home"
                     className={activeSection === "home" ? "active" : ""}
-                    onClick={(e) => {
+                    onClick={(e: ReactMouseEvent<HTMLAnchorElement>) => {
                         e.preventDefault();
                         handleClick("home");
                     }}
@@ -140,7 +132,7 @@ export const Header = ({ t }: any) => {
                 <a
                     href="#about"
                     className={activeSection === "about" ? "active" : ""}
-                    onClick={(e) => {
+                    onClick={(e: ReactMouseEvent<HTMLAnchorElement>) => {
                         e.preventDefault();
                         handleClick("about");
                     }}
@@ -155,7 +147,7 @@ export const Header = ({ t }: any) => {
                   <a
                     href="#trajectory"
                     className={activeSection === "trajectory" ? "active" : ""}
-                    onClick={(e) => {
+                    onClick={(e: ReactMouseEvent<HTMLAnchorElement>) => {
                         e.preventDefault();
                         handleClick("trajectory");
                     }}
@@ -170,7 +162,7 @@ export const Header = ({ t }: any) => {
                 <a
                     href="#projects"
                     className={activeSection === "projects" ? "active" : ""}
-                    onClick={(e) => {
+                    onClick={(e: ReactMouseEvent<HTMLAnchorElement>) => {
                         e.preventDefault();
                         handleClick("projects");
                     }}
@@ -185,7 +177,7 @@ export const Header = ({ t }: any) => {
                 <a
                     href="#contact"
                     className={activeSection === "contact" ? "active" : ""}
-                    onClick={(e) => {
+                    onClick={(e: ReactMouseEvent<HTMLAnchorElement>) => {
                         e.preventDefault();
                         handleClick("contact");
                     }}

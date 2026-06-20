@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 
 export type ThemeMode = 'light' | undefined;
-import { persist } from "zustand/middleware";
+import { createJSONStorage, persist } from "zustand/middleware";
 
 
 export interface portfolioStore {
@@ -54,7 +54,8 @@ export const usePortfolioStore = create<portfolioStore>()(
     }),
     {
       name: "theme-storage", // clave en localStorage
-      getStorage: () => localStorage, // opcional, default localStorage
+      storage: createJSONStorage(() => localStorage),
+      partialize: (state) => ({ theme: state.theme }),
     }
 
   )

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { usePortfolioStore } from './store/store';
 import "./styles/_variables.scss";
 import "./styles/app.scss";
@@ -43,11 +43,19 @@ const createParticleOptionsOne = getparticleOptionsOne as unknown as ParticleOpt
 const createParticleOptionsDos = getparticleOptionsDos as unknown as ParticleOptionsFactory;
 
 function App() {
-  const { theme } = usePortfolioStore();
+  const theme = usePortfolioStore((state) => state.theme);
   const { t, loadTranslations } = useTranslation();
   const { lang } = useLanguageStore();
   const copy = t as AppTranslations;
   const footerCopy = copy.footer || {};
+  const particlesOptionsOne = useMemo(
+    () => createParticleOptionsOne(theme, "absolute"),
+    [theme],
+  );
+  const particlesOptionsDos = useMemo(
+    () => createParticleOptionsDos(theme, "fixed"),
+    [theme],
+  );
 
   useEffect(() => {
     loadTranslations();
@@ -72,7 +80,7 @@ function App() {
         style={{ position: 'relative', zIndex: 2, transition: "all 1s ease-in-out" }}
       >
         <div className="presentation" style={{ position: 'relative', zIndex: 1 }} id="home">
-          <ParticleBackground id="tsparticles" particlesOption={createParticleOptionsOne(theme, "absolute")} />
+          <ParticleBackground id="tsparticles" particlesOption={particlesOptionsOne} />
           <div className="contenedor-presentation">
             <h1 style={{ textAlign: "center" }}>
               {copy.greeting} <span className="accent-text">{copy.first_name}</span>
@@ -98,7 +106,7 @@ function App() {
           </div>
         </div>
 
-        <ParticleBackground id="tsparticles2" particlesOption={createParticleOptionsDos(theme, "fixed")} />
+        <ParticleBackground id="tsparticles2" particlesOption={particlesOptionsDos} />
 
         <div id="about" style={{ position: 'relative', zIndex: 1 }}>
           <div style={{ position: 'relative', zIndex: 100 }}>
